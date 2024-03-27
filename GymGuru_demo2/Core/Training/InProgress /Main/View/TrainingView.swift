@@ -26,6 +26,14 @@ struct TrainingView: View {
                 .padding(.bottom, 7)
                 .environmentObject(viewModel)
             
+            if let programName = viewModel.currentTraining.nameOfProgram {
+                HStack {
+                    Text("Программа: \(programName)")
+                    Spacer()
+                }
+                .padding()
+            }
+            
             
             ScrollView {
                 VStack {

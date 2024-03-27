@@ -79,6 +79,7 @@ class TrainingViewModel: ObservableObject {
                         isBodyweight: exerciseItem.isBodyweight,
                         sets: [])
                     newTraining.exercises.append(newExercise)
+                    newTraining.nameOfProgram = program.name
                 }
             }
         }

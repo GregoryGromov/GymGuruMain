@@ -14,6 +14,8 @@ struct Training: Identifiable, Codable, Hashable {
     var dateEnd: Date?
     var exercises: [Exercise]
     
+    var nameOfProgram: String?
+    
     var duration: Int {
         if let dateEnd = dateEnd {
             return Int(dateEnd.timeIntervalSince(date))
