@@ -14,6 +14,8 @@ struct RouterView: View {
     
     
     
+    
+    
     var body: some View {
         VStack {
             if viewModel.trainingInProgress {

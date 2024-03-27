@@ -17,9 +17,9 @@ struct TrainingStartView: View {
     
     
     //Мое предложение, сделать так:
-//    @EnvironmentObject var router: RouterViewModel
+    //    @EnvironmentObject var router: RouterViewModel
     
-    let router: RouterViewModel 
+    let router: RouterViewModel
     @StateObject var viewModel: TrainingStartViewModel
     
     init(router: RouterViewModel) {
@@ -29,44 +29,12 @@ struct TrainingStartView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                HStack(alignment: .top) {
-                    Spacer()
-                    
-                    Text("00:00")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                }
-                .padding()
-                .padding(.horizontal, 26)
-                .padding(.bottom, 0)
-                HStack {
-                    Spacer()
-                    Button {
-                        //router.startTraining()
-                        viewModel.startTraining()
-                    } label: {
-                        Text("Начать")
-                            .frame(width: 280, height: 30)
-                            .foregroundColor(.black)
-                            .font(.title2)
-                            .padding(10)
-                            .background(
-                                RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color("ColorGray3"))
-                            )
-                        
-                    }
-                }
-                .padding(.horizontal, 30)
-                .padding(.bottom, 20)
+            Button {
                 
+                viewModel.startTraining()
+            } label: {
+                Text("Начать")
             }
-            .background(
-                RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.white)
-            )
-            .padding()
-            
             
             HStack {
                 Text("Choose program")
@@ -76,7 +44,47 @@ struct TrainingStartView: View {
             }
             .padding()
             
-            Spacer()
+            
+            VStack {
+                if viewModel.programs.isEmpty {
+                    Text("У Вас не добавлено ни одной программы")
+                } else {
+                    VStack {
+                        ForEach(viewModel.programs, id: \.self) { program in
+                            VStack {
+                                HStack {
+                                    Text(program.name)
+                                    Spacer()
+                                    Text("\(program.exercises.count)")
+                                }
+                                .padding()
+                                .background(
+                                    viewModel.selectedProgramId == program.id
+                                    ? Color(.systemGray2)
+                                    : Color(.systemGray6)
+                                )
+                                .onTapGesture {
+                                    viewModel.selectedProgramId = program.id
+                                }
+                                Divider()
+                            }
+                            
+                        }
+                    }
+                }
+                
+                Button {
+                    viewModel.showAddProgramView = true
+                } label: {
+                    Text("Добавить программу")
+                }
+            }
+            .onAppear {
+                print("Я тут")
+            }
+            .sheet(isPresented: $viewModel.showAddProgramView) {
+                AddProgramView(programVM: viewModel)
+            }
             
             
         }

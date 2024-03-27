@@ -18,7 +18,7 @@ class AddProgrammViewModel: ObservableObject {
     
     
     
-    let motherViewModel: ProgramsViewModel
+    let motherViewModel: TrainingStartViewModel
     
     @Published var addedExercises: [ExerciseItem] = []
     @Published var allExerciseItems = ExerciseService.shared.buildInExercisesItems
@@ -28,7 +28,7 @@ class AddProgrammViewModel: ObservableObject {
     @Published var programName = ""
     @Published var selectedColor: Color? = nil
     
-    init(motherViewModel: ProgramsViewModel) {
+    init(motherViewModel: TrainingStartViewModel) {
         self.motherViewModel = motherViewModel
     }
 

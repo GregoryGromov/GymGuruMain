@@ -17,6 +17,8 @@ class RouterViewModel: ObservableObject {
     
     @Published var trainingInProgress = false
     
+    @Published var namesOfSelectedExercises: [String] = []
+    
     func startTraining() {
         self.trainingInProgress = true
     }

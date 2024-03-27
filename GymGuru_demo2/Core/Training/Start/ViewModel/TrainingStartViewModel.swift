@@ -10,10 +10,21 @@ import SwiftUI
 
 class TrainingStartViewModel: ObservableObject {
     
+    @Published var programs: [Program]
+    
+    @Published var showAddProgramView = false
+    
+    @Published var selectedProgramId = ""
+    
+    static func getPrograms() -> [Program] {
+        return CoreDataManager.shared.getPrograms()
+    }
+    
     let router: RouterViewModel
     
     init(router: RouterViewModel) {
         self.router = router
+        self.programs = ProgramsViewModel.getPrograms()
     }
     
     func startTraining() {

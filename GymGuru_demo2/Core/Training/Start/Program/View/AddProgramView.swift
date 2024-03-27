@@ -13,9 +13,10 @@ struct AddProgramView: View {
     
     @StateObject var viewModel: AddProgrammViewModel
     
-    init(programVM: ProgramsViewModel) {
+    init(programVM: TrainingStartViewModel) {
         self._viewModel = StateObject(wrappedValue: AddProgrammViewModel(motherViewModel: programVM))
     }
+    
 
     
     
