@@ -28,6 +28,12 @@ class TrainingStartViewModel: ObservableObject {
     }
     
     func startTraining() {
+        
+        let selectedExerciseNames = programs.filter { $0.id == selectedProgramId }
+        if selectedExerciseNames.count > 0 {
+            router.program = selectedExerciseNames[0]
+        }
+       
         router.startTraining()
     }
 }

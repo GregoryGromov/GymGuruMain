@@ -29,11 +29,11 @@ class TrainingViewModel: ObservableObject {
 //                    date: Date(),
 //                    exercises: []
 //                )
-                self.currentTraining = TrainingViewModel.createNewTraining()
+                self.currentTraining = TrainingViewModel.createNewTraining(program: nil)
 
             }
-        } else {
-            let newTraining = TrainingViewModel.createNewTraining()
+        } else { //если у нас новая тренировка
+            let newTraining = TrainingViewModel.createNewTraining(program: router.program)
             self.currentTraining = newTraining
             router.setTrainingInProgress()
             TrainingService.shared.saveTrainingToUD(training: newTraining)
@@ -58,12 +58,31 @@ class TrainingViewModel: ObservableObject {
     @Published var setsOfSelectedExercise: [Set]? = []
     
     
-    static func createNewTraining() -> Training {
-        let newTraining = Training(
+    static func createNewTraining(program: Program?) -> Training {
+        var newTraining = Training(
             id: UUID().uuidString,
             date: Date(),
             exercises: []
         )
+        
+        if let program = program {
+            let exerciseItems = ExerciseService.shared.buildInExercisesItems
+            
+            for exerciseName in program.exercises {
+                let exerciseItemArr = exerciseItems.filter { $0.name == exerciseName }
+                if exerciseItemArr.count > 0 {
+                    let exerciseItem = exerciseItemArr[0]
+                    let newExercise = Exercise(
+                        id: UUID().uuidString,
+                        name: exerciseItem.name,
+                        muscleGroup: exerciseItem.muscleGroup,
+                        isBodyweight: exerciseItem.isBodyweight,
+                        sets: [])
+                    newTraining.exercises.append(newExercise)
+                }
+            }
+        }
+        
         return newTraining
     }
     

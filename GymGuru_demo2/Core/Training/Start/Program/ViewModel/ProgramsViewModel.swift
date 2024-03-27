@@ -11,12 +11,9 @@ import Foundation
 class ProgramsViewModel: ObservableObject {
     
     @Published var programs: [Program]
-    
     @Published var showAddProgramView = false
-    
     @Published var selectedProgramId = ""
     
-
     
     init() {
         self.programs = ProgramsViewModel.getPrograms()

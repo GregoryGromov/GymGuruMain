@@ -30,7 +30,6 @@ struct TrainingStartView: View {
     var body: some View {
         VStack {
             Button {
-                
                 viewModel.startTraining()
             } label: {
                 Text("Начать")
