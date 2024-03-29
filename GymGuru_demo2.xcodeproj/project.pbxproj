@@ -168,6 +168,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F349E112BB720AC00BE2083 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
 		5F3C064C2BAA0F2700A37BF6 /* Program */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,6 +765,7 @@
 		5FB6A1E52B7784D100790B18 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5F349E112BB720AC00BE2083 /* Design */,
 				5FB6A1CE2B769BED00790B18 /* View */,
 				5FB6A1CD2B769BE500790B18 /* ViewModel */,
 				5FB6A1CF2B769C2D00790B18 /* Subviews */,

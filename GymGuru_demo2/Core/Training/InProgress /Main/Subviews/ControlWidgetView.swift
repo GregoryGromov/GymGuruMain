@@ -7,158 +7,196 @@
 
 import SwiftUI
 
+struct BlueButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.title3)
+            .fontWeight(.semibold)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 20.0)
+                    .fill(Color(.systemGray3))
+                    .frame(height: 38)
+            )
+            .foregroundColor(Color(.systemGray))
+    }
+}
+
+
+struct TimeButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.title3)
+            .fontWeight(.semibold)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 20.0)
+                    .fill(Color(.systemGray3))
+                    .frame(width: 75, height: 38)
+            )
+            .foregroundColor(Color(.systemGray))
+    }
+}
+
 struct ControlWidgetView: View {
     
-    @EnvironmentObject var viewModel: TrainingViewModel
+    //@EnvironmentObject var viewModel: TrainingViewModel
     
     @State var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
     
     @State var trainingDuration = 0
     @State var formattedDuration = ""
+    //
+    //    var amountOfExercises: Int {
+    //        return viewModel.currentTraining.exercises.count
+    //    }
+    //
+    //    var amountOfSets: Int {
+    //        var setCounter = 0
+    //        for exercise in viewModel.currentTraining.exercises {
+    //            setCounter += exercise.sets.count
+    //        }
+    //        return setCounter
+    //    }
     
-    var amountOfExercises: Int {
-        return viewModel.currentTraining.exercises.count
-    }
+    let columns = Array(repeating: GridItem(.flexible()), count: 1)
     
-    var amountOfSets: Int {
-        var setCounter = 0
-        for exercise in viewModel.currentTraining.exercises {
-            setCounter += exercise.sets.count
-        }
-        return setCounter
-    }
+    
     
     var body: some View {
-        VStack { 
-            HStack(alignment: .top) {
-                VStack(alignment: .leading) {
-                    Text("\(amountOfExercises) exercises")
-                    Text("\(amountOfSets) sets")
-                }
-                .foregroundColor(.gray)
-                .font(.headline)
-                .padding(.bottom, 3)
-                
-                Spacer()
-                Text(formattedDuration)
+        
+        
+        
+        VStack {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color(.systemGray5))
+                HStack() {
                     
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                    .onReceive(self.timer) { time in
-                        trainingDuration  += 1
-                        formattedDuration = viewModel.secondsToTime(inSeconds: trainingDuration)
-                        
+                    Image(systemName: "timer")
+                        .font(.largeTitle)
+                        .foregroundStyle(Color(.systemGray2))
+                        .padding()
+                    
+                    
+                    
+                    Text("15:04")
+                    
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                    //                    .onReceive(self.timer) { time in
+                    //                        trainingDuration  += 1
+                    //                        formattedDuration = viewModel.secondsToTime(inSeconds: trainingDuration)
+                    //                    }
+                    
+                    Spacer()
+                    
+                    
+                    
+                    Button("Завершить") {
+                        //                    viewModel.finishTraining()
                     }
+                    .buttonStyle(BlueButton())
+                }
+                .padding(.horizontal)
             }
-            .padding()
-            .padding(.horizontal, 26)
-            .padding(.bottom, 0)
-            
+            .frame(height: 80)
             
             HStack {
-                Spacer()
-                Button {
-                    viewModel.finishTraining()
-                } label: {
-                    Text("Завершить")
-                        .frame(width: 280, height: 30)
-                        .foregroundColor(.black)
-                        .font(.title2)
-                        .padding(10)
-                        .background(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color("ColorGray3"))
-                        )
+                Image(systemName: "hourglass.bottomhalf.filled")
+                    .font(.largeTitle)
+                    .padding(.trailing, 10)
+                
+                
+                HStack(spacing: 0) {
+                    Button {
+                        
+                    } label: {
+                        Text("1 min")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 20.0)
+                                    .fill(Color(.systemGray3))
+                                    .frame(width: 75, height: 38)
+                            )
+                            .foregroundColor(Color(.systemGray))
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        Text("3 min")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 20.0)
+                                    .fill(Color(.systemGray3))
+                                    .frame(width: 75, height: 38)
+                            )
+                            .foregroundColor(Color(.systemGray))
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        Text("5 min")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 20.0)
+                                    .fill(Color(.systemGray3))
+                                    .frame(width: 75, height: 38)
+                            )
+                            .foregroundColor(Color(.systemGray))
+                    }
                     
                 }
+                .padding(.trailing, 4)
+                    
+                Button {
+                    
+                } label: {
+                    Image(systemName: "pencil")
+                        .font(.title2)
+                        .fontWeight(.black)
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 20.0)
+                                .fill(Color(.systemGray3))
+                                .frame(width: 75, height: 38)
+                        )
+                        .foregroundColor(Color(.systemGray))
+                    
+                }
+                
+                
+                    
+                    
+                    
+        
             }
-            .padding(.horizontal, 30)
-            .padding(.bottom, 20)
+            
+            Spacer()
+            
+            
+            
+            
+            
         }
-        .background(
-            RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color.white)
-        )
-        .onAppear {
-            //trainingDuration = viewModel.currentTraining.duration
-            trainingDuration = viewModel.computeTrainingDuration()
-        }
+        
+        //        .onAppear {
+        //            trainingDuration = viewModel.computeTrainingDuration()
+        //        }
     }
 }
 
 
 
-
-
-
-
-//            HStack(alignment: .top) {
-//
-//                VStack(alignment: .leading) {
-//                    Text("2 exercises")
-//                    Text("7 sets")
-//                }
-//                .foregroundColor(.gray)
-//                .font(.headline)
-//                .padding(.bottom, 3)
-//
-//                Spacer()
-//
-//                Text("\(trainingDuration)s")
-//                    .font(.title)
-//                    .foregroundStyle(.black)
-//                    .onReceive(self.timer) { time in
-//                        if isTimerRunning {
-//                            trainingDuration  += 1
-//                        }
-//                    }
-//
-//
-//            }
-//            .padding()
-//            .padding(.horizontal, 26)
-//            .padding(.bottom, 0)
-//            HStack {
-//                Button {
-//                    if isTimerRunning {
-//                        isTimerRunning = false
-//                    } else {
-//                        isTimerRunning = true
-//                    }
-//
-//                } label: {
-//                    if isTimerRunning {
-//                        Text("Stop")
-//                            .frame(width: 140, height: 30)
-//                            .foregroundColor(.black)
-//                            .font(.title2)
-//                            .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-//                            .cornerRadius(15)
-//                    } else {
-//                        Text("Continue")
-//                            .frame(width: 140, height: 30)
-//                            .foregroundColor(.black)
-//                            .font(.title2)
-//                            .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-//                            .cornerRadius(15)
-//                    }
-//
-//                }
-//                Spacer()
-//                Button {
-//                    print("Finish training")
-//                    viewModel.setDuration(duration: trainingDuration)
-//                    viewModel.finishTraining()
-//                    trainingRouter.setTrainingInProgressToFalse()
-//                    trainingRouter.detectState()
-//                } label: {
-//                    Text("Finish")
-//                        .frame(width: 140, height: 30)
-//                        .foregroundColor(.black)
-//                        .font(.title2)
-//                        .background(Color(red: 0.85, green: 0.85, blue: 0.85))
-//                        .cornerRadius(15)
-//                }
-//            }
-//            .padding(.horizontal, 30)
-//            .padding(.bottom, 20)
-                
+#Preview {
+    ControlWidgetView()
+        .preferredColorScheme(.dark)
+}
