@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F04738E2BB85BF8007B87C1 /* TimeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */; };
+		5F349E132BB7218800BE2083 /* MainTrainingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F349E122BB7218800BE2083 /* MainTrainingPage.swift */; };
 		5F3C06492BAA0B9200A37BF6 /* TrainingsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C06482BAA0B9200A37BF6 /* TrainingsWidget.swift */; };
 		5F3C064B2BAA0DE900A37BF6 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C064A2BAA0DE900A37BF6 /* Program.swift */; };
 		5F3C064E2BAA0F4200A37BF6 /* AddProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C064D2BAA0F4200A37BF6 /* AddProgramView.swift */; };
@@ -82,6 +84,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButtonView.swift; sourceTree = "<group>"; };
+		5F349E122BB7218800BE2083 /* MainTrainingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTrainingPage.swift; sourceTree = "<group>"; };
 		5F3C06482BAA0B9200A37BF6 /* TrainingsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsWidget.swift; sourceTree = "<group>"; };
 		5F3C064A2BAA0DE900A37BF6 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		5F3C064D2BAA0F4200A37BF6 /* AddProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgramView.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 		5F349E112BB720AC00BE2083 /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				5F349E122BB7218800BE2083 /* MainTrainingPage.swift */,
+				5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -954,6 +960,7 @@
 				5FB6A1AF2B763A2000790B18 /* Exercise.swift in Sources */,
 				5F9C0C502BA5A041003717BA /* CalendarDateView.swift in Sources */,
 				5FED8AB62BA4BAA200C4DCE7 /* CalenarView.swift in Sources */,
+				5F04738E2BB85BF8007B87C1 /* TimeButtonView.swift in Sources */,
 				5FB6A1C42B76453800790B18 /* ExerciseService.swift in Sources */,
 				5FB6A1D72B769E3E00790B18 /* SetItemBWView.swift in Sources */,
 				5F6237E72BB476770086D25F /* ProgramsViewModel.swift in Sources */,
@@ -966,6 +973,7 @@
 				5F3C6BEE2B7DDF0B00A92717 /* DataMOCK.swift in Sources */,
 				5F670E9C2BA1A1200017CCA3 /* ChartExerciseInfo.swift in Sources */,
 				5FD38F332BA1FA2D00D5FDF1 /* WeightDateItem.swift in Sources */,
+				5F349E132BB7218800BE2083 /* MainTrainingPage.swift in Sources */,
 				5FDA2F9D2BA89D7900876AE8 /* WeightWidget.swift in Sources */,
 				5FB6A1AD2B763A1A00790B18 /* Set.swift in Sources */,
 				5FD38F372BA1FC7400D5FDF1 /* TimePeriods.swift in Sources */,

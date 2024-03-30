@@ -12,7 +12,8 @@ struct ContentView: View {
         //MainTabView()
 //        CalendarView()
 //        AddProgramView()
-        RouterView()
+//        RouterView()
+        MainTrainingPage()
             .preferredColorScheme(.dark)
     }
 }
