@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5F04738E2BB85BF8007B87C1 /* TimeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */; };
+		5F0473912BB86B7D007B87C1 /* PurpleCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473902BB86B7D007B87C1 /* PurpleCircles.swift */; };
+		5F0473942BB96AAF007B87C1 /* TrainingWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473932BB96AAF007B87C1 /* TrainingWidget.swift */; };
+		5F0473972BB96B76007B87C1 /* TimerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473962BB96B76007B87C1 /* TimerBar.swift */; };
 		5F349E132BB7218800BE2083 /* MainTrainingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F349E122BB7218800BE2083 /* MainTrainingPage.swift */; };
 		5F3C06492BAA0B9200A37BF6 /* TrainingsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C06482BAA0B9200A37BF6 /* TrainingsWidget.swift */; };
 		5F3C064B2BAA0DE900A37BF6 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C064A2BAA0DE900A37BF6 /* Program.swift */; };
@@ -85,6 +88,9 @@
 
 /* Begin PBXFileReference section */
 		5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButtonView.swift; sourceTree = "<group>"; };
+		5F0473902BB86B7D007B87C1 /* PurpleCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleCircles.swift; sourceTree = "<group>"; };
+		5F0473932BB96AAF007B87C1 /* TrainingWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingWidget.swift; sourceTree = "<group>"; };
+		5F0473962BB96B76007B87C1 /* TimerBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBar.swift; sourceTree = "<group>"; };
 		5F349E122BB7218800BE2083 /* MainTrainingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTrainingPage.swift; sourceTree = "<group>"; };
 		5F3C06482BAA0B9200A37BF6 /* TrainingsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsWidget.swift; sourceTree = "<group>"; };
 		5F3C064A2BAA0DE900A37BF6 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
@@ -172,11 +178,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F0473922BB96A9D007B87C1 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				5F0473932BB96AAF007B87C1 /* TrainingWidget.swift */,
+				5F0473962BB96B76007B87C1 /* TimerBar.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		5F349E112BB720AC00BE2083 /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				5F0473922BB96A9D007B87C1 /* Subviews */,
 				5F349E122BB7218800BE2083 /* MainTrainingPage.swift */,
 				5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */,
+				5F0473902BB86B7D007B87C1 /* PurpleCircles.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -954,10 +971,12 @@
 				5F44BF8C2BAF1106006059F3 /* AddProgrammViewModel.swift in Sources */,
 				5F4ABBB92BAB64D200F5EBFE /* MuscleGroupSelectView.swift in Sources */,
 				5F40DC9E2BA072BF00D7D744 /* ExerciseMenuView.swift in Sources */,
+				5F0473972BB96B76007B87C1 /* TimerBar.swift in Sources */,
 				5F40DCAA2BA0D71D00D7D744 /* ExerciseStaticticsViewModel.swift in Sources */,
 				5F3C6BD02B7CDE8000A92717 /* LinkLabel.swift in Sources */,
 				5FB6A1D92B769E4C00790B18 /* SetItemView.swift in Sources */,
 				5FB6A1AF2B763A2000790B18 /* Exercise.swift in Sources */,
+				5F0473942BB96AAF007B87C1 /* TrainingWidget.swift in Sources */,
 				5F9C0C502BA5A041003717BA /* CalendarDateView.swift in Sources */,
 				5FED8AB62BA4BAA200C4DCE7 /* CalenarView.swift in Sources */,
 				5F04738E2BB85BF8007B87C1 /* TimeButtonView.swift in Sources */,
@@ -969,6 +988,7 @@
 				5FB6A1962B76373400790B18 /* GymGuru_demo2App.swift in Sources */,
 				5F670EA12BA1AF620017CCA3 /* Colors.swift in Sources */,
 				5F3C064E2BAA0F4200A37BF6 /* AddProgramView.swift in Sources */,
+				5F0473912BB86B7D007B87C1 /* PurpleCircles.swift in Sources */,
 				5FB6A1C82B76502E00790B18 /* TrainingStartView.swift in Sources */,
 				5F3C6BEE2B7DDF0B00A92717 /* DataMOCK.swift in Sources */,
 				5F670E9C2BA1A1200017CCA3 /* ChartExerciseInfo.swift in Sources */,

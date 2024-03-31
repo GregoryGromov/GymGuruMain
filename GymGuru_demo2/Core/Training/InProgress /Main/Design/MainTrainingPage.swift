@@ -1,287 +1,197 @@
-//
-//  MainTrainingPage.swift
-//  GymGuru_demo2
-//
-//  Created by Григорий Громов on 29.03.2024.
-//
-
 import SwiftUI
 
 struct MainTrainingPage: View {
     
-    @State var changeTimeset = false
     
+    
+    @Namespace private var animation
+    
+    
+    @State var exercises = [
+        Exercise(id: UUID().uuidString, name: "Жим лежа", muscleGroup: ["Chest", "Shoulders", "Arms"], isBodyweight: false, sets: [
+            Set(id: UUID().uuidString, date: Date(), weight: 70, amount: 12),
+            Set(id: UUID().uuidString, date: Date(), weight: 80, amount: 32),
+            Set(id: UUID().uuidString, date: Date(), weight: 90, amount: 9)
+        ], isFolded: false),
+        Exercise(id: UUID().uuidString, name: "Тяга блока", muscleGroup: ["Chest", "Shoulders", "Arms"], isBodyweight: false, sets: [
+            Set(id: UUID().uuidString, date: Date(), weight: 70, amount: 12),
+            Set(id: UUID().uuidString, date: Date(), weight: 80, amount: 32),
+            Set(id: UUID().uuidString, date: Date(), weight: 90, amount: 9)
+        ], isFolded: true),
+        Exercise(id: UUID().uuidString, name: "Молот", muscleGroup: ["Chest", "Shoulders", "Arms"], isBodyweight: false, sets: [
+            Set(id: UUID().uuidString, date: Date(), weight: 70, amount: 12),
+            Set(id: UUID().uuidString, date: Date(), weight: 80, amount: 32),
+            Set(id: UUID().uuidString, date: Date(), weight: 90, amount: 9)
+        ], isFolded: true)
+    ]
+    let SetsMOCK = DataMOCK.SetsMOCK
+    
+
+    
+    
+    
+    @State var showChangeTimesetView = false
     @State var timerIsRinging = false
-    
     @State var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
-    
     @State var timerInProgress = false
     
-    let color1 = Color("purple1")
-    let color2 = Color("purple2")
+    
     
     @State var timePeriod1 = 120
     @State var time = 120
     
-    @State var persent = 10.0
+    let color1 = Color("purple1")
+    let color2 = Color("purple2")
+    
+    
     
     var body: some View {
         VStack {
             
             //main widget
+            TrainingWidget(timerInProgress: $timerInProgress)
             
-            if timerInProgress {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(Color(.systemGray5))
-                        .frame(height: 80)
+            //timer bar
+            TimerBar(timerInProgress: $timerInProgress,
+                     timerIsRinging: $timerIsRinging,
+                     timePeriod1: $timePeriod1,
+                     time: $time,
+                     showChangeTimesetView: $showChangeTimesetView)
+            
+            // addExerciseBar
+            HStack {
+                Text("Упражнения")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Spacer()
+                
+                Button {
                     
-                        
-                    HStack {
-                        HStack(spacing: 16) {
-                            Image(systemName: "timer")
-                                .font(.largeTitle)
-                                .foregroundStyle(Color(.systemGray2))
-                            Text("38:14")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .foregroundStyle(Color(.systemGray))
-                            
-                            Spacer()
-                            
-                            Button {
-                                print("Завершить тренировку")
-                            } label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray3))
-                                        
-                                    Text("завершить")
-                                        .foregroundStyle(Color(.systemGray))
-                                        .padding(7)
-                                        .font(.title2)
-                                        .fontWeight(.semibold)
-                                        
-                                }
-                                
-                                .frame(width: 140, height: 30)
-                                
-                                
-                                    
-                            }
-                            
-                        }
-                        .padding(.horizontal, 20)
-                        
-                            
-                    }
-                    
+                } label: {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(Color(.systemGray))
                 }
-                .padding(.horizontal, 10)
-            } else {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(
-                            LinearGradient(gradient: Gradient(colors: [color1, color2]),
-                                           startPoint: .topLeading,
-                                           endPoint: .bottomTrailing)
-                            .opacity(0.8)
-                        )
-                        .frame(height: 80)
-                    
-                        
-                    HStack {
-                        HStack(spacing: 16) {
-                            Image(systemName: "timer")
-                                .font(.largeTitle)
-                                .foregroundStyle(.white)
-                                .opacity(0.5)
-                            Text("38:14")
-                                .font(.title)
-                                .fontWeight(.bold)
-                            
-                            Spacer()
-                            
-                            Button {
-                                print("Завершить тренировку")
-                            } label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 20).fill(.white)
-                                        .opacity(0.3)
-                                        
-                                    Text("завершить")
-                                        .foregroundStyle(.white)
-                                        .padding(7)
-                                        .font(.title2)
-                                        .fontWeight(.semibold)
-                                        
-                                }
-                                
-                                .frame(width: 140, height: 30)
-                                
-                                
-                                    
-                            }
-                            
-                        }
-                        .padding(.horizontal, 20)
-                        
-                            
-                    }
-                    
-                }
-                .padding(.horizontal, 10)
             }
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
             
             
             
-            //activated timer
-            
-            if timerInProgress {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(
-                            LinearGradient(gradient: Gradient(colors: [color1, color2]),
-                                           startPoint: .topLeading,
-                                           endPoint: .bottomTrailing)
-                            .opacity(0.8)
-                        )
-                        .edgesIgnoringSafeArea(.all)
-                        .frame(height: 70)
-                    
-                   
-                    
+            //exercises list
+            ScrollView {
+                ForEach(exercises, id: \.self) { exercise in
+                    VStack {
                         
-                    HStack {
-                        
-                        if timerIsRinging {
-                            Text("Время вышло")
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .padding(.leading, 44)
-                        } else {
-                            Text("\(time)")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .padding(.leading, 22)
-                                .padding(.trailing, 16)
-                                .frame(width: 100)
-                            
-                            Spacer()
-                            
-                            
-                            ZStack {
-                                HStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 160, height: 15).opacity(0.3)
-                                    Spacer()
-                                }
+                    
+                    if exercise.isFolded {
+                
+                        VStack {
+                            HStack {
+                                Text("Жим лежа")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
                                 
+                                Spacer()
                                 
-                                HStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: 160 * CGFloat((Float(time) / Float(timePeriod1))), height: 15).opacity(1)
-                                    //                                .clipShape(RoundedRectangle(cornerRadius: 10)
-                                    //                                    .frame(width: 160, height: 15))
-                                    Spacer()
-                                }
+                                PurpleCircles(amount: 3, isActive: $timerInProgress)
+                                Image(systemName: "chevron.right")
+                                    .fontWeight(.bold)
+                                    .frame(width: 16)
+                                    .padding(.leading, 12)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            withAnimation(.spring()) {
+                                                foldExerciseInfo(byID: exercise.id)
+                                            }
+                                            
+                                        }
+                                        
+                                    }
                                 
                             }
                             
-                            
+                            .padding(.horizontal, 12)
+                            EmptyView()
+                                .matchedGeometryEffect(id: "AlbumTitle" + exercise.id, in: animation)
                         }
+                    }
+                    else { //разложено
                         
-                            
-                            
-                            
-                        
-                        Spacer()
-                        
-                            Button {
-                                withAnimation {
-                                    timerInProgress = false
+                       
+                            VStack {
+                                HStack {
+                                    Text("Жим лежа")
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                    
+                                    Spacer()
+                                    
+                                    PurpleCircles(amount: 3, isActive: $timerInProgress)
+                                    Image(systemName: "chevron.down")
+                                        .fontWeight(.bold)
+                                        .frame(width: 16)
+                                        .padding(.leading, 12)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                foldExerciseInfo(byID: exercise.id)
+                                            }
+                                        }
                                 }
                                 
-                                time = timePeriod1
-                                timerIsRinging = false
-                                
-                            } label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 20).fill(Color(.white))
-                                        .opacity(0.4)
-                                        
-                                    Image(systemName: "xmark")
-                                        .foregroundStyle(.white)
-                                        .padding(7)
+                                VStack {
+                                    ForEach(exercise.sets, id: \.self) { setItem in
+                                        HStack {
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                                    .fill(Color(.systemGray3))
+                                                    .frame(width: 150, height: 40)
+                                                Text(String(format: "%.1f", setItem.weight))
+                                            }
+                                            Spacer()
+                                            ZStack {
+                                                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                                    .fill(Color(.systemGray3))
+                                                    .frame(width: 150, height: 40)
+                                                
+                                                Text("\(setItem.amount)")
+                                            }
+                                            
+                                            
+                                        }
                                         .font(.title3)
                                         .fontWeight(.bold)
-                                        
+                                    }
                                 }
-                                .frame(width: 60, height: 30)
-                                .padding(.trailing, 18)
+                                .padding(.vertical, 10)
                                 
+                                .matchedGeometryEffect(id: "AlbumTitle" + exercise.id, in: animation)
                                 
-                                
-                                    
-                            
-                            
-                        }
-                        
-                        
-                            
-                    }
-                    
-                }
-                .padding(.horizontal, 10)
-            } else {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 30)
-                        .fill(Color(.systemGray5))
-                        .edgesIgnoringSafeArea(.all)
-                        .frame(height: 70)
-                    
-                    HStack {
-                        TimeButtonView(amountOfMins: 0.04, timePeriod1: $timePeriod1, time: $time, timerInProgress: $timerInProgress)
-                        
-                        TimeButtonView(amountOfMins: 3, timePeriod1: $timePeriod1, time: $time, timerInProgress: $timerInProgress)
-                        
-                        TimeButtonView(amountOfMins: 5, timePeriod1: $timePeriod1, time: $time, timerInProgress: $timerInProgress)
-                        
-                        
-                        
-                        
-                        Button {
-                            changeTimeset = true
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray3))
-                                
-                                Image(systemName: "pencil")
-                                    .font(.title3)
-                                    .fontWeight(.black)
-                                    .foregroundStyle(.white)
                                 
                             }
-                            .frame(width: 75, height: 38)
-                        }
-                        
+                            
+                            .padding(.horizontal, 12)
+                            
+                            
+                            
+                            
+                 
                         
                     }
+                    }
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color(.systemGray5))
+                            .padding(.horizontal, 1)
+                        
+                    )
+                  
                 }
-                .padding(.horizontal, 10)
+                
             }
             
-           
-            
-            
-            
-            
-            
-            
-            
-                
-            
-            Spacer()
         }
+        .padding(.horizontal, 10)
         .onReceive(self.timer) { _ in
             if timerInProgress {
                 if time > 0 {
@@ -296,10 +206,24 @@ struct MainTrainingPage: View {
             }
         }
         
-        
+        .sheet(isPresented: $showChangeTimesetView) {
+            VStack {
+                Text("Изменить время")
+            }
+//                .presentationDetents([.height(200)])
+        }
     }
     
     
+    
+    func foldExerciseInfo(byID id: String) {
+        for index in exercises.indices {
+            if exercises[index].id == id {
+                exercises[index].isFolded.toggle()
+                return
+            }
+        }
+    }
 }
 
 #Preview {

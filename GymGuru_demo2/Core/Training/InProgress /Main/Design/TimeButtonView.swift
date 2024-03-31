@@ -9,18 +9,31 @@ import SwiftUI
 
 struct TimeButtonView: View {
     
-    let amountOfMins: Float
+    let amountOfSeconds: Int
     
     @Binding var timePeriod1: Int
     @Binding var time: Int
     @Binding var timerInProgress: Bool
     
+    var amountOfMins: String {
+        if amountOfSeconds % 30 == 0 {
+            let amountOfHalfMinutes = amountOfSeconds / 30
+            if amountOfHalfMinutes % 2 == 0 {
+                return "\(amountOfHalfMinutes / 2)"
+            } else {
+                return "\(amountOfHalfMinutes / 2).5"
+            }
+        } else {
+            return "228"
+        }
+    }
+    
     
     var body: some View {
         Button {
-            timePeriod1 = Int(60 * amountOfMins)
-            time = Int(60 * amountOfMins)
-            withAnimation {
+            timePeriod1 = amountOfSeconds
+            time = amountOfSeconds
+            withAnimation(.easeIn) {
                 timerInProgress = true
             }
         } label: {
