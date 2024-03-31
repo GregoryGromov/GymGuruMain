@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
-
+       
 struct TrainingWidget: View {
     
+    @EnvironmentObject var viewModel: TrainingViewModel
     @Binding var timerInProgress: Bool
     
     let color1 = Color("purple1")
@@ -35,7 +36,7 @@ struct TrainingWidget: View {
                             Spacer()
                             
                             Button {
-                                print("Завершить тренировку")
+                                viewModel.finishTraining()
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray3))

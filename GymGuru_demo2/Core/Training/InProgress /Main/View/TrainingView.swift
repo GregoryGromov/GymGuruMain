@@ -11,107 +11,131 @@ struct TrainingView: View {
     
     @StateObject var viewModel: TrainingViewModel
     
+    
+    
+    @Namespace private var animation
+    
+    @State var timerInProgress = false
+    @State var showChangeTimesetView = false
+    @State var timerIsRinging = false
+    @State var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    @State var timePeriod1 = 120
+    @State var time = 120
+    
+    let color1 = Color("purple1")
+    let color2 = Color("purple2")
+    
+    
+    
     init(router: RouterViewModel) {
         self._viewModel = StateObject(wrappedValue: TrainingViewModel(router: router))
     }
     
     var body: some View {
-        NavigationStack {
-            ControlWidgetView()
+        VStack {
+            TrainingWidget(timerInProgress: $timerInProgress)
                 .environmentObject(viewModel)
             
-            //Кнопка добавления упражнения
-            AddExerciseButton()
-                .padding(.top, 3)
-                .padding(.bottom, 7)
+            TimerBar(timerInProgress: $timerInProgress,
+                     timerIsRinging: $timerIsRinging,
+                     timePeriod1: $timePeriod1,
+                     time: $time,
+                     showChangeTimesetView: $showChangeTimesetView)
+            
+            AddExerciseBar()
                 .environmentObject(viewModel)
             
-            if let programName = viewModel.currentTraining.nameOfProgram {
-                HStack {
-                    Text("Программа: \(programName)")
-                    Spacer()
-                }
-                .padding()
-            }
+            
+            
             
             
             ScrollView {
-                VStack {
-                    
-                    //List {
-                        ForEach(viewModel.currentTraining.exercises) { exercise in
-                            VStack{
-                                HStack {
-                                    Text(exercise.name)
-                                        .padding(.horizontal, 35)
-                                        .font(.title3)
-                                        .fontWeight(.bold)
-                                    Spacer()
-                                    
-                                    GreenCircles(amount: exercise.sets.count)
-                                    
-                                    HStack {
-                                        Button {
-                                            viewModel.toggleFold(exerciseId: exercise.id)
-                                        } label: {
-                                            if exercise.isFolded {
-                                                Image(systemName: "chevron.down")
-                                                    .font(.title3)
-                                                    .padding(.horizontal)
-                                                    .foregroundColor(.white)
-                                            } else {
-                                                Image(systemName: "chevron.up")
-                                                    .font(.title3)
-                                                    .padding(.horizontal)
-                                                    .foregroundColor(.white)
-                                            }
-                                        }
-                                    }
-                                    
-                                }
-                                if !exercise.isFolded {
-                                    VStack {
-                                        
-                                        ForEach(exercise.sets) { setItem in
-                                            HStack {
-                                                if exercise.isBodyweight {
-                                                    SetItemBWView(setItem: setItem)
-                                                        .padding(.vertical, 4)
-                                                        .padding(.horizontal, 20)
-                                                } else {
-                                                    SetItemView(setItem: setItem)
-                                                        .padding(.vertical, 4)
-                                                        .padding(.horizontal, 20)
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            .onTapGesture {
-                                viewModel.selectedExercie = exercise
-                                viewModel.showAddSetView.toggle()
-                            }
-                        }
-                    
-                        
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color(red: 0.13, green: 0.13, blue: 0.13))
-                                .padding(.horizontal, 19)
+                ForEach(viewModel.currentTraining.exercises) { exercise in
+                    VStack{
+                        HStack {
+                            Text(exercise.name)
+                                .font(.title3)
+                                .fontWeight(.semibold)
                             
-                        )
+                            Spacer()
+                            
+                            PurpleCircles(amount: exercise.sets.count, isActive: $timerInProgress)
+                            Image(systemName: "chevron.up")
+                                .rotationEffect(.degrees(exercise.isFolded ? 180 : 0))
+                                .fontWeight(.bold)
+                                .frame(width: 16)
+                                .padding(.leading, 12)
+                                .onTapGesture {
+                                    withAnimation {
+                                        withAnimation() {
+                                            
+                                            foldExerciseInfo(byID: exercise.id)
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                        }
+                        .padding(.horizontal, 12)
                         
-                    //}
-                    //Spacer()
+                        if exercise.isFolded {
+                            EmptyView()
+                                .matchedGeometryEffect(id: "exerciseInfo" + exercise.id, in: animation)
+                        } else {
+                            VStack {
+                                ForEach(exercise.sets, id: \.self) { setItem in
+                                    HStack {
+                                        ZStack {
+                                            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                                .fill(Color(.systemGray3))
+                                                .frame(width: 150, height: 40)
+                                            Text(String(format: "%.1f", setItem.weight))
+                                        }
+                                        Spacer()
+                                        ZStack {
+                                            RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                                .fill(Color(.systemGray3))
+                                                .frame(width: 150, height: 40)
+                                            
+                                            Text("\(setItem.amount)")
+                                        }
+                                        
+                                        
+                                    }
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                }
+                            }
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 12)
+                            .matchedGeometryEffect(id: "exerciseInfo" + exercise.id, in: animation)
+                        }
+                    }
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Color(.systemGray5))
+                            .padding(.horizontal, 1)
                         
+                    )
+                    .onTapGesture {
+                        viewModel.selectedExercie = exercise
+                        viewModel.showAddSetView.toggle()
+                    }
                 }
+                
+                
+                
+                
+             
+                
+                
                 .sheet(isPresented: $viewModel.showAddExerciseView) {
                     SelectMuscleGroupView(trainingViewModel: viewModel)
                         .environmentObject(viewModel)
                     Text("Выберите группу мышц")
                 }
             }
+            
             .sheet(isPresented: $viewModel.showAddSetView, content: {
                 if let selectedExercie = viewModel.selectedExercie {
                     if selectedExercie.isBodyweight {
@@ -120,19 +144,44 @@ struct TrainingView: View {
                     } else {
                         AddSetView(selectedExercise: selectedExercie)
                             .environmentObject(viewModel)
-                            
+                        
                     }
                     
                 } else {
                     Text("Ошибка 1")
                 }
             })
+            
+            
+        }
+        .padding(.horizontal, 10)
+        .onReceive(self.timer) { _ in
+            if timerInProgress {
+                if time > 0 {
+                    withAnimation {
+                        time  -= 1
+                    }
+                } else {
+                    timerIsRinging = true
+                    print("Время вышло")
+                }
+                
+            }
         }
     }
     
-//    func delete(at offsets: IndexSet) {
-//        viewModel.currentTraining.exercises.remove(atOffsets: offsets)
-//    }
+    func foldExerciseInfo(byID id: String) {
+        for index in viewModel.currentTraining.exercises.indices {
+            if viewModel.currentTraining.exercises[index].id == id {
+                viewModel.currentTraining.exercises[index].isFolded.toggle()
+                return
+            }
+        }
+    }
+    
+    //    func delete(at offsets: IndexSet) {
+    //        viewModel.currentTraining.exercises.remove(atOffsets: offsets)
+    //    }
 }
 
 

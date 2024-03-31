@@ -11,6 +11,9 @@ struct MainTabView: View {
     
     @State private var selectedIndex = 0
     
+    let color1 = Color("purple1")
+    let color2 = Color("purple2")
+    
     var body: some View {
         TabView(selection: $selectedIndex) {
             //StatisticsView()
@@ -21,6 +24,11 @@ struct MainTabView: View {
                 }
                 .tabItem {
                     Image(systemName: "chart.line.uptrend.xyaxis")
+
+                        .font(.largeTitle)
+                        .foregroundStyle(LinearGradient(gradient: Gradient(colors: [color1, color2]),
+                                                  startPoint: .topLeading,
+                                                  endPoint: .bottomTrailing))
                 }.tag(0)
             
             RouterView()
@@ -31,5 +39,8 @@ struct MainTabView: View {
                     Image(systemName: "figure.strengthtraining.traditional")
                 }.tag(1)
         }
+        .accentColor(.purpleForCircles)
     }
 }
+
+

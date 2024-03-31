@@ -17,13 +17,13 @@ struct PurpleCircles: View {
         if amount < 5 && amount != 0 {
             ForEach(0...(amount - 1), id: \.self) { _ in
                 Rectangle()
-                .frame(width: 12, height: 12)
-                .foregroundStyle(
-                    isActive
-                    ? Color(.systemGray2)
-                    : Color("purpleForCircles")
-                )
-                .cornerRadius(10)
+                    .frame(width: 12, height: 12)
+                    .foregroundStyle(
+                        isActive
+                        ? Color(.systemGray2)
+                        : Color("purpleForCircles")
+                    )
+                    .cornerRadius(10)
             }
         } else if amount != 0 {
             Text("\(amount)")
@@ -37,4 +37,29 @@ struct PurpleCircles: View {
         }
     }
 }
+
+
+
+
+
+//if isFolded {
+//    Image(systemName: "chevron.right")
+//        .onTapGesture {
+//            withAnimation {
+//                withAnimation(.spring()) {
+//                    isFolded.toggle()
+//                }
+//                
+//            }
+//            
+//        }   
+//}
+//else { //разложено
+//    Image(systemName: "chevron.down")
+//        .onTapGesture {
+//            withAnimation(.spring()) {
+//                isFolded.toggle()
+//            }
+//        }
+//}
 

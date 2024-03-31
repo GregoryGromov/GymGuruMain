@@ -6,6 +6,8 @@ struct MainTrainingPage: View {
     
     @Namespace private var animation
     
+   
+    
     
     @State var exercises = [
         Exercise(id: UUID().uuidString, name: "Жим лежа", muscleGroup: ["Chest", "Shoulders", "Arms"], isBodyweight: false, sets: [
@@ -27,7 +29,7 @@ struct MainTrainingPage: View {
     let SetsMOCK = DataMOCK.SetsMOCK
     
 
-    
+    @State var isFolded = false
     
     
     @State var showChangeTimesetView = false
@@ -82,11 +84,6 @@ struct MainTrainingPage: View {
             ScrollView {
                 ForEach(exercises, id: \.self) { exercise in
                     VStack {
-                        
-                    
-                    if exercise.isFolded {
-                
-                        VStack {
                             HStack {
                                 Text("Жим лежа")
                                     .font(.title3)
@@ -96,49 +93,34 @@ struct MainTrainingPage: View {
                                 
                                 PurpleCircles(amount: 3, isActive: $timerInProgress)
                                 Image(systemName: "chevron.right")
+                                    .rotationEffect(.degrees(exercise.isFolded ? 0 : 90))
                                     .fontWeight(.bold)
                                     .frame(width: 16)
                                     .padding(.leading, 12)
                                     .onTapGesture {
                                         withAnimation {
-                                            withAnimation(.spring()) {
+                                            withAnimation() {
+                                                
                                                 foldExerciseInfo(byID: exercise.id)
                                             }
                                             
                                         }
                                         
                                     }
-                                
                             }
-                            
                             .padding(.horizontal, 12)
-                            EmptyView()
-                                .matchedGeometryEffect(id: "AlbumTitle" + exercise.id, in: animation)
-                        }
+                            
+                        
+                        
+                    
+                    if exercise.isFolded {
+                        EmptyView()
+                            .matchedGeometryEffect(id: "AlbumTitle" + exercise.id, in: animation)
+                        
                     }
                     else { //разложено
-                        
-                       
-                            VStack {
-                                HStack {
-                                    Text("Жим лежа")
-                                        .font(.title3)
-                                        .fontWeight(.semibold)
-                                    
-                                    Spacer()
-                                    
-                                    PurpleCircles(amount: 3, isActive: $timerInProgress)
-                                    Image(systemName: "chevron.down")
-                                        .fontWeight(.bold)
-                                        .frame(width: 16)
-                                        .padding(.leading, 12)
-                                        .onTapGesture {
-                                            withAnimation {
-                                                foldExerciseInfo(byID: exercise.id)
-                                            }
-                                        }
-                                }
-                                
+
+                            
                                 VStack {
                                     ForEach(exercise.sets, id: \.self) { setItem in
                                         HStack {
@@ -168,15 +150,8 @@ struct MainTrainingPage: View {
                                 .matchedGeometryEffect(id: "AlbumTitle" + exercise.id, in: animation)
                                 
                                 
-                            }
                             
                             .padding(.horizontal, 12)
-                            
-                            
-                            
-                            
-                 
-                        
                     }
                     }
                     .padding()
@@ -189,6 +164,7 @@ struct MainTrainingPage: View {
                 }
                 
             }
+            
             
         }
         .padding(.horizontal, 10)

@@ -73,7 +73,7 @@
 		5FB6A1DB2B769EB100790B18 /* AddSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1DA2B769EB100790B18 /* AddSetView.swift */; };
 		5FB6A1DD2B769EB700790B18 /* AddSetBWView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1DC2B769EB600790B18 /* AddSetBWView.swift */; };
 		5FB6A1E02B76AB3000790B18 /* ControlWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1DF2B76AB3000790B18 /* ControlWidgetView.swift */; };
-		5FB6A1E22B7783CF00790B18 /* AddExerciseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1E12B7783CE00790B18 /* AddExerciseButton.swift */; };
+		5FB6A1E22B7783CF00790B18 /* AddExerciseBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1E12B7783CE00790B18 /* AddExerciseBar.swift */; };
 		5FB6A1EE2B77877800790B18 /* ExerciseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1ED2B77877800790B18 /* ExerciseItem.swift */; };
 		5FD38F332BA1FA2D00D5FDF1 /* WeightDateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD38F322BA1FA2D00D5FDF1 /* WeightDateItem.swift */; };
 		5FD38F352BA1FA9A00D5FDF1 /* ChartExerciseSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD38F342BA1FA9A00D5FDF1 /* ChartExerciseSmall.swift */; };
@@ -154,7 +154,7 @@
 		5FB6A1DA2B769EB100790B18 /* AddSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSetView.swift; sourceTree = "<group>"; };
 		5FB6A1DC2B769EB600790B18 /* AddSetBWView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSetBWView.swift; sourceTree = "<group>"; };
 		5FB6A1DF2B76AB3000790B18 /* ControlWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlWidgetView.swift; sourceTree = "<group>"; };
-		5FB6A1E12B7783CE00790B18 /* AddExerciseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseButton.swift; sourceTree = "<group>"; };
+		5FB6A1E12B7783CE00790B18 /* AddExerciseBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseBar.swift; sourceTree = "<group>"; };
 		5FB6A1ED2B77877800790B18 /* ExerciseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseItem.swift; sourceTree = "<group>"; };
 		5FD38F322BA1FA2D00D5FDF1 /* WeightDateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDateItem.swift; sourceTree = "<group>"; };
 		5FD38F342BA1FA9A00D5FDF1 /* ChartExerciseSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartExerciseSmall.swift; sourceTree = "<group>"; };
@@ -777,7 +777,7 @@
 		5FB6A1DE2B769F1900790B18 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				5FB6A1E12B7783CE00790B18 /* AddExerciseButton.swift */,
+				5FB6A1E12B7783CE00790B18 /* AddExerciseBar.swift */,
 				5FB6A1D42B769E2000790B18 /* GreenCircles.swift */,
 				5FB6A1D62B769E3E00790B18 /* SetItemBWView.swift */,
 				5FB6A1D82B769E4C00790B18 /* SetItemView.swift */,
@@ -948,7 +948,7 @@
 				5F40DC6E2BA043FD00D7D744 /* RouterView.swift in Sources */,
 				5F40DCA82BA0C56C00D7D744 /* ExerciseStatisticsView.swift in Sources */,
 				5FB6A1B32B763A4500790B18 /* MainTabView.swift in Sources */,
-				5FB6A1E22B7783CF00790B18 /* AddExerciseButton.swift in Sources */,
+				5FB6A1E22B7783CF00790B18 /* AddExerciseBar.swift in Sources */,
 				5F3C6BF62B7DE08100A92717 /* TonnageChartViewModel.swift in Sources */,
 				5FB6A1DB2B769EB100790B18 /* AddSetView.swift in Sources */,
 				5F9C0C542BA5A9D9003717BA /* CalendarService.swift in Sources */,
