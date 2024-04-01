@@ -20,7 +20,7 @@ struct TrainingWidget: View {
             if timerInProgress {
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)
-                        .fill(Color(.systemGray5))
+                        .fill(Color(.systemGray6))
                         .frame(height: 80)
 
                     HStack {

@@ -38,7 +38,7 @@ struct TimeButtonView: View {
             }
         } label: {
             ZStack {
-                RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray3))
+                RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray4))
                     
                 
                 Text("\(amountOfMins) min")

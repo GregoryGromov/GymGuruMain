@@ -101,24 +101,14 @@ struct TimerBar: View {
                             }
                             .frame(width: 60, height: 30)
                             .padding(.trailing, 18)
-                            
-                            
-                            
-                            
-                            
-                            
                         }
-                        
-                        
-                        
                     }
-                    
                 }
                 
             } else {
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)
-                        .fill(Color(.systemGray5))
+                        .fill(Color(.systemGray6))
                         .edgesIgnoringSafeArea(.all)
                         .frame(height: 70)
                     
@@ -136,7 +126,7 @@ struct TimerBar: View {
                             showChangeTimesetView = true
                         } label: {
                             ZStack {
-                                RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray3))
+                                RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray4))
                                 
                                 Image(systemName: "pencil")
                                     .font(.title3)

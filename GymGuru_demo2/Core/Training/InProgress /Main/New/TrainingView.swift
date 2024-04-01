@@ -45,10 +45,6 @@ struct TrainingView: View {
             AddExerciseBar()
                 .environmentObject(viewModel)
             
-            
-            
-            
-            
             ScrollView {
                 ForEach(viewModel.currentTraining.exercises) { exercise in
                     VStack{
@@ -66,12 +62,8 @@ struct TrainingView: View {
                                 .frame(width: 16)
                                 .padding(.leading, 12)
                                 .onTapGesture {
-                                    withAnimation {
-                                        withAnimation() {
-                                            
-                                            foldExerciseInfo(byID: exercise.id)
-                                        }
-                                        
+                                    withAnimation() {
+                                        foldExerciseInfo(byID: exercise.id)
                                     }
                                     
                                 }
@@ -84,26 +76,7 @@ struct TrainingView: View {
                         } else {
                             VStack {
                                 ForEach(exercise.sets, id: \.self) { setItem in
-                                    HStack {
-                                        ZStack {
-                                            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                                .fill(Color(.systemGray3))
-                                                .frame(width: 150, height: 40)
-                                            Text(String(format: "%.1f", setItem.weight))
-                                        }
-                                        Spacer()
-                                        ZStack {
-                                            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                                .fill(Color(.systemGray3))
-                                                .frame(width: 150, height: 40)
-                                            
-                                            Text("\(setItem.amount)")
-                                        }
-                                        
-                                        
-                                    }
-                                    .font(.title3)
-                                    .fontWeight(.bold)
+                                    SetItemView(setItem: setItem)
                                 }
                             }
                             .padding(.vertical, 10)

@@ -181,10 +181,22 @@
 		5F0473922BB96A9D007B87C1 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				5F0473932BB96AAF007B87C1 /* TrainingWidget.swift */,
-				5F0473962BB96B76007B87C1 /* TimerBar.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		5F0473982BBABC09007B87C1 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				5FB6A1D02B769C8B00790B18 /* TrainingView.swift */,
+				5FB6A1D22B769D4700790B18 /* TrainingViewModel.swift */,
+				5F0473962BB96B76007B87C1 /* TimerBar.swift */,
+				5F0473932BB96AAF007B87C1 /* TrainingWidget.swift */,
+				5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */,
+				5F0473902BB86B7D007B87C1 /* PurpleCircles.swift */,
+				5FB6A1D82B769E4C00790B18 /* SetItemView.swift */,
+			);
+			path = New;
 			sourceTree = "<group>";
 		};
 		5F349E112BB720AC00BE2083 /* Design */ = {
@@ -192,8 +204,6 @@
 			children = (
 				5F0473922BB96A9D007B87C1 /* Subviews */,
 				5F349E122BB7218800BE2083 /* MainTrainingPage.swift */,
-				5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */,
-				5F0473902BB86B7D007B87C1 /* PurpleCircles.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -751,7 +761,6 @@
 		5FB6A1CD2B769BE500790B18 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				5FB6A1D22B769D4700790B18 /* TrainingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -759,7 +768,6 @@
 		5FB6A1CE2B769BED00790B18 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5FB6A1D02B769C8B00790B18 /* TrainingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -768,7 +776,6 @@
 			isa = PBXGroup;
 			children = (
 				5FB6A1DF2B76AB3000790B18 /* ControlWidgetView.swift */,
-				5FB6A1DA2B769EB100790B18 /* AddSetView.swift */,
 				5FB6A1DC2B769EB600790B18 /* AddSetBWView.swift */,
 			);
 			path = Subviews;
@@ -777,10 +784,10 @@
 		5FB6A1DE2B769F1900790B18 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5FB6A1DA2B769EB100790B18 /* AddSetView.swift */,
 				5FB6A1E12B7783CE00790B18 /* AddExerciseBar.swift */,
 				5FB6A1D42B769E2000790B18 /* GreenCircles.swift */,
 				5FB6A1D62B769E3E00790B18 /* SetItemBWView.swift */,
-				5FB6A1D82B769E4C00790B18 /* SetItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -788,6 +795,7 @@
 		5FB6A1E52B7784D100790B18 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5F0473982BBABC09007B87C1 /* New */,
 				5F349E112BB720AC00BE2083 /* Design */,
 				5FB6A1CE2B769BED00790B18 /* View */,
 				5FB6A1CD2B769BE500790B18 /* ViewModel */,
