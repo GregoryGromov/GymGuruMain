@@ -12,4 +12,7 @@ struct ExerciseItem: Hashable, Codable {
     let muscleGroup: [String]
     let isBodyweight: Bool
     var isSelected = false
+    
+    var previouslySelected: Bool?
+
 }

@@ -9,6 +9,19 @@ import Foundation
 
 class SelectMuscleGroupViewModel: ObservableObject {
     
+    
+    
+    
+   
+    @Published var allExerciseItems = ExerciseService.shared.buildInExercisesItems
+    
+    
+    @Published var showAddExerciseView = false
+    
+    
+    
+    
+    
     let trainingViewModel: TrainingViewModel
     
     init(trainingViewModel: TrainingViewModel) {
@@ -23,6 +36,45 @@ class SelectMuscleGroupViewModel: ObservableObject {
     var amountOfSelectedExercises: Int {
         return exerciseItems.filter({$0.isSelected}).count
     }
+    
+    
+    
+    
+    
+    func selectExercise(exercise: ExerciseItem) {
+        print("We here #1")
+        for index in 0...(allExerciseItems.count-1) {
+            if allExerciseItems[index].name == exercise.name {
+                print("We here #2")
+                allExerciseItems[index].isSelected.toggle()
+            }
+        }
+    }
+    
+    func addNewExerciseItems() {
+        trainingViewModel.addedExercises = []
+        
+        for exercise in allExerciseItems {
+            if exercise.isSelected {
+                trainingViewModel.addedExercises.append(exercise)
+            }
+        }
+    }
+    
+    
+    func addSelectedExercisesToTraining() {
+        let exercises = convertExerciseItemsToExercises(exerciseItems: trainingViewModel.addedExercises)
+        for exercise in exercises {
+            //!!! мы не должны иметь прямого досутпа к свойствам класса - исправить: сделать в классе функцию сеттер
+            trainingViewModel.currentTraining.exercises.append(exercise)
+            trainingViewModel.saveTraining()
+        }
+    }
+    
+    
+    
+    
+    
     
     
     func switchIsSelected(exercise: ExerciseItem) {

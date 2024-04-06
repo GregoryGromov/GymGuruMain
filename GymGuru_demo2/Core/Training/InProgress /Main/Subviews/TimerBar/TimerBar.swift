@@ -15,9 +15,9 @@ struct TimerBar: View {
     @Binding var time: Int
     @Binding var showChangeTimesetView: Bool
     
-    let color1 = Color("purple1")
-    let color2 = Color("purple2")
     
+    
+    @StateObject var viewModel = TimerBarViewModel()
     
     
     var body: some View {
@@ -25,12 +25,7 @@ struct TimerBar: View {
             if timerInProgress {
                 ZStack {
                     RoundedRectangle(cornerRadius: 30)
-                        .fill(
-                            LinearGradient(gradient: Gradient(colors: [color1, color2]),
-                                           startPoint: .topLeading,
-                                           endPoint: .bottomTrailing)
-                            .opacity(0.8)
-                        )
+                        .fill(Colors.shared.linearGradientPurple.opacity(0.8))
                         .edgesIgnoringSafeArea(.all)
                         .frame(height: 70)
                     
@@ -113,14 +108,10 @@ struct TimerBar: View {
                         .frame(height: 70)
                     
                     HStack {
-                        TimeButtonView(amountOfSeconds: 3, timePeriod1: $timePeriod1, time: $time, timerInProgress: $timerInProgress)
                         
-                        TimeButtonView(amountOfSeconds: 150, timePeriod1: $timePeriod1, time: $time, timerInProgress: $timerInProgress)
-                        
-                        TimeButtonView(amountOfSeconds: 300, timePeriod1: $timePeriod1, time: $time, timerInProgress: $timerInProgress)
-                        
-                        
-                        
+                        ForEach(viewModel.timeValues.filter{$0.isFavourite}.sorted{$0.seconds < $1.seconds}) { timeValue in
+                            TimeButtonView(amountOfSeconds: timeValue.seconds, timePeriod1: $timePeriod1, time: $time, timerInProgress: $timerInProgress)
+                        }
                         
                         Button {
                             showChangeTimesetView = true
@@ -144,7 +135,13 @@ struct TimerBar: View {
         
 
         }
+        .sheet(isPresented: $showChangeTimesetView) {
+            EditTimerBarView()
+                .environmentObject(viewModel)
+        }
     }
+    
+    
     
     private func formatSecondsToMinutesAndSeconds(seconds: Int) -> String {
         let minutes = seconds / 60
@@ -156,4 +153,32 @@ struct TimerBar: View {
         }
     }
 }
+
+
+//
+//struct TimerBar2: View {
+//    @State var showChangeTimesetView = false
+//    @StateObject var viewModel = TimerBarViewModel2()
+//    
+//    var body: some View {
+//        VStack {
+//        }
+//        .sheet(isPresented: $showChangeTimesetView) {
+//            EditTimerBarView2()
+//                .environmentObject(viewModel)
+//        }
+//    }
+//}
+//
+//class TimerBarViewModel2: ObservableObject {
+//
+//}
+//
+//struct EditTimerBarView2: View {
+//    @EnvironmentObject var viewModel: TimerBarViewModel2
+//    var body: some View {
+//        VStack {
+//        }
+//    }
+//}
 

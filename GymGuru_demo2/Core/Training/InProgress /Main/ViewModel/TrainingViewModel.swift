@@ -13,39 +13,32 @@ import SwiftUI
 
 class TrainingViewModel: ObservableObject {
     
+    
+
+    @Published var addedExercises: [ExerciseItem] = []
+    
     init(router: RouterViewModel) {
-        
         if TrainingService.shared.isTrainingInProgress() {
             let oldTraining = TrainingService.shared.fetchTrainingFromUD()
-            //print("DEBUG: Старая тренировка была получена")
+            
             if let training = oldTraining {
                 self.currentTraining = training
                 
             } else {
-               
-                //print("DEBUG/WARNING: не удалось загрузить тренировку из UserDefaults, поэтому начата новая")
-//                let newTraining = Training(
-//                    id: UUID().uuidString,
-//                    date: Date(),
-//                    exercises: []
-//                )
                 self.currentTraining = TrainingViewModel.createNewTraining(program: nil)
 
             }
+            
         } else { //если у нас новая тренировка
             let newTraining = TrainingViewModel.createNewTraining(program: router.program)
             self.currentTraining = newTraining
             router.setTrainingInProgress()
             TrainingService.shared.saveTrainingToUD(training: newTraining)
-            
-            //print("DEBUG: Создана новая тренировка")
         }
         self.router = router
     }
     
-//    deinit {
-//        print("DEBUG: TrainingViewModel уничтожена")
-//    }
+    
     
     let router: RouterViewModel
     

@@ -46,7 +46,7 @@ struct TrainingView: View {
                 .environmentObject(viewModel)
             
             ScrollView {
-                ForEach(viewModel.currentTraining.exercises) { exercise in
+                ForEach(viewModel.currentTraining.exercises, id: \.self) { exercise in
                     VStack{
                         HStack {
                             Text(exercise.name)
@@ -95,31 +95,20 @@ struct TrainingView: View {
                         viewModel.showAddSetView.toggle()
                     }
                 }
-                
-                
-                
-                
-             
-                
-                
-                .sheet(isPresented: $viewModel.showAddExerciseView) {
-                    SelectMuscleGroupView(trainingViewModel: viewModel)
-                        .environmentObject(viewModel)
-                    Text("Выберите группу мышц")
+                .fullScreenCover(isPresented: $viewModel.showAddExerciseView) {
+                    SelectMuscleGroupView2(trainingViewModel: viewModel)
                 }
+                
+                
+                
+                
+                
             }
             
             .sheet(isPresented: $viewModel.showAddSetView, content: {
                 if let selectedExercie = viewModel.selectedExercie {
-                    if selectedExercie.isBodyweight {
-                        AddSetBWView(selectedExercise: selectedExercie)
-                            .environmentObject(viewModel)
-                    } else {
-                        AddSetView(selectedExercise: selectedExercie)
-                            .environmentObject(viewModel)
-                        
-                    }
-                    
+                        AddSetView2(selectedExercise: selectedExercie)
+                            .environmentObject(viewModel)                    
                 } else {
                     Text("Ошибка 1")
                 }

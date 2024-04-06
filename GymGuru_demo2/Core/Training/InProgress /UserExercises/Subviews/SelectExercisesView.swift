@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SelectExercisesView: View {
     
-    @EnvironmentObject var viewModel: SelectMuscleGroupViewModel
+    @StateObject var viewModel: SelectMuscleGroupViewModel
     @Environment(\.dismiss) var dismiss
     
     let muscleGroup: String
@@ -20,7 +20,6 @@ struct SelectExercisesView: View {
                 Button {
                     dismiss()
                 } label: {
-//                    Image(systemName: "xmark.circle.fill")
                     Image(systemName: "chevron.left.circle.fill")
                         .font(.title)
                         .foregroundColor(.white)
@@ -32,9 +31,6 @@ struct SelectExercisesView: View {
                     .font(.title)
                     .fontWeight(.bold)
                 Spacer()
-                
-                
-                
             }
             .padding()
             ForEach(viewModel.exerciseItems.filter({ $0.muscleGroup.contains(muscleGroup)}), id: \.self)  { exercise in
@@ -45,23 +41,17 @@ struct SelectExercisesView: View {
                             .font(.title3)
                             .fontWeight(.bold)
                         Spacer()
-                        if exercise.isSelected == true {
-                            ZStack {
-                                Image(systemName: "checkmark.circle")
-                                    .font(.title)
-                                    .foregroundColor(Color(red: 0, green: 0.92, blue: 0))
-                            }
-                            
+                        if exercise.isSelected {
+                            Image(systemName: "checkmark.circle")
+                                .font(.title)
                         } else {
                             Image(systemName: "circle")
                                 .font(.title)
-                                .foregroundColor(Color(red: 0, green: 0.92, blue: 0))
-
                         }
                         
                     }
                     .onTapGesture {
-                        viewModel.switchIsSelected(exercise: exercise)
+                        viewModel.selectExercise(exercise: exercise)
                     }
                     .padding()
                     Divider()

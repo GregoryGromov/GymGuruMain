@@ -15,10 +15,14 @@ import SwiftUI
 
 class AddProgrammViewModel: ObservableObject {
     
-    
-    
-    
     let motherViewModel: TrainingStartViewModel
+    
+    init(motherViewModel: TrainingStartViewModel) {
+        self.motherViewModel = motherViewModel
+    }
+    
+    
+    
     
     @Published var addedExercises: [ExerciseItem] = []
     @Published var allExerciseItems = ExerciseService.shared.buildInExercisesItems
@@ -28,9 +32,7 @@ class AddProgrammViewModel: ObservableObject {
     @Published var programName = ""
     @Published var selectedColor: Color? = nil
     
-    init(motherViewModel: TrainingStartViewModel) {
-        self.motherViewModel = motherViewModel
-    }
+    
 
 
     

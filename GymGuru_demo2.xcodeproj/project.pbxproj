@@ -11,11 +11,17 @@
 		5F0473912BB86B7D007B87C1 /* PurpleCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473902BB86B7D007B87C1 /* PurpleCircles.swift */; };
 		5F0473942BB96AAF007B87C1 /* TrainingWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473932BB96AAF007B87C1 /* TrainingWidget.swift */; };
 		5F0473972BB96B76007B87C1 /* TimerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473962BB96B76007B87C1 /* TimerBar.swift */; };
-		5F349E132BB7218800BE2083 /* MainTrainingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F349E122BB7218800BE2083 /* MainTrainingPage.swift */; };
+		5F04739F2BBAC548007B87C1 /* AddExerciseViewModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F04739E2BBAC548007B87C1 /* AddExerciseViewModel2.swift */; };
+		5F0473A12BBAC5E3007B87C1 /* SelectMuscleGroupView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473A02BBAC5E3007B87C1 /* SelectMuscleGroupView2.swift */; };
+		5F0473A32BBAF43D007B87C1 /* SelectExerciseView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473A22BBAF43D007B87C1 /* SelectExerciseView2.swift */; };
+		5F0473A52BBAFB25007B87C1 /* AddSetView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473A42BBAFB25007B87C1 /* AddSetView2.swift */; };
+		5F0473A72BBAFB6B007B87C1 /* SetBWItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473A62BBAFB6B007B87C1 /* SetBWItemView.swift */; };
+		5F0473B02BBB1A6E007B87C1 /* TextFieldModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473AF2BBB1A6E007B87C1 /* TextFieldModifiers.swift */; };
+		5F0473B22BBBFD22007B87C1 /* EditTimerBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473B12BBBFD22007B87C1 /* EditTimerBarView.swift */; };
+		5F0473B52BBBFE65007B87C1 /* TimerBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0473B42BBBFE65007B87C1 /* TimerBarViewModel.swift */; };
 		5F3C06492BAA0B9200A37BF6 /* TrainingsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C06482BAA0B9200A37BF6 /* TrainingsWidget.swift */; };
 		5F3C064B2BAA0DE900A37BF6 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C064A2BAA0DE900A37BF6 /* Program.swift */; };
 		5F3C064E2BAA0F4200A37BF6 /* AddProgramView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C064D2BAA0F4200A37BF6 /* AddProgramView.swift */; };
-		5F3C6BCB2B7CD00E00A92717 /* SelectMuscleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C6BCA2B7CD00E00A92717 /* SelectMuscleGroupView.swift */; };
 		5F3C6BCD2B7CD01C00A92717 /* SelectMuscleGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C6BCC2B7CD01C00A92717 /* SelectMuscleGroupViewModel.swift */; };
 		5F3C6BD02B7CDE8000A92717 /* LinkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C6BCF2B7CDE8000A92717 /* LinkLabel.swift */; };
 		5F3C6BD32B7CE0FE00A92717 /* UsersExercisesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C6BD22B7CE0FE00A92717 /* UsersExercisesView.swift */; };
@@ -67,12 +73,7 @@
 		5FB6A1CC2B76519500790B18 /* TrainingStartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1CB2B76519500790B18 /* TrainingStartViewModel.swift */; };
 		5FB6A1D12B769C8B00790B18 /* TrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1D02B769C8B00790B18 /* TrainingView.swift */; };
 		5FB6A1D32B769D4700790B18 /* TrainingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1D22B769D4700790B18 /* TrainingViewModel.swift */; };
-		5FB6A1D52B769E2000790B18 /* GreenCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1D42B769E2000790B18 /* GreenCircles.swift */; };
-		5FB6A1D72B769E3E00790B18 /* SetItemBWView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1D62B769E3E00790B18 /* SetItemBWView.swift */; };
 		5FB6A1D92B769E4C00790B18 /* SetItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1D82B769E4C00790B18 /* SetItemView.swift */; };
-		5FB6A1DB2B769EB100790B18 /* AddSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1DA2B769EB100790B18 /* AddSetView.swift */; };
-		5FB6A1DD2B769EB700790B18 /* AddSetBWView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1DC2B769EB600790B18 /* AddSetBWView.swift */; };
-		5FB6A1E02B76AB3000790B18 /* ControlWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1DF2B76AB3000790B18 /* ControlWidgetView.swift */; };
 		5FB6A1E22B7783CF00790B18 /* AddExerciseBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1E12B7783CE00790B18 /* AddExerciseBar.swift */; };
 		5FB6A1EE2B77877800790B18 /* ExerciseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6A1ED2B77877800790B18 /* ExerciseItem.swift */; };
 		5FD38F332BA1FA2D00D5FDF1 /* WeightDateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD38F322BA1FA2D00D5FDF1 /* WeightDateItem.swift */; };
@@ -91,11 +92,17 @@
 		5F0473902BB86B7D007B87C1 /* PurpleCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleCircles.swift; sourceTree = "<group>"; };
 		5F0473932BB96AAF007B87C1 /* TrainingWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingWidget.swift; sourceTree = "<group>"; };
 		5F0473962BB96B76007B87C1 /* TimerBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBar.swift; sourceTree = "<group>"; };
-		5F349E122BB7218800BE2083 /* MainTrainingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTrainingPage.swift; sourceTree = "<group>"; };
+		5F04739E2BBAC548007B87C1 /* AddExerciseViewModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModel2.swift; sourceTree = "<group>"; };
+		5F0473A02BBAC5E3007B87C1 /* SelectMuscleGroupView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMuscleGroupView2.swift; sourceTree = "<group>"; };
+		5F0473A22BBAF43D007B87C1 /* SelectExerciseView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectExerciseView2.swift; sourceTree = "<group>"; };
+		5F0473A42BBAFB25007B87C1 /* AddSetView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetView2.swift; sourceTree = "<group>"; };
+		5F0473A62BBAFB6B007B87C1 /* SetBWItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetBWItemView.swift; sourceTree = "<group>"; };
+		5F0473AF2BBB1A6E007B87C1 /* TextFieldModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifiers.swift; sourceTree = "<group>"; };
+		5F0473B12BBBFD22007B87C1 /* EditTimerBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTimerBarView.swift; sourceTree = "<group>"; };
+		5F0473B42BBBFE65007B87C1 /* TimerBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBarViewModel.swift; sourceTree = "<group>"; };
 		5F3C06482BAA0B9200A37BF6 /* TrainingsWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsWidget.swift; sourceTree = "<group>"; };
 		5F3C064A2BAA0DE900A37BF6 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		5F3C064D2BAA0F4200A37BF6 /* AddProgramView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgramView.swift; sourceTree = "<group>"; };
-		5F3C6BCA2B7CD00E00A92717 /* SelectMuscleGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectMuscleGroupView.swift; sourceTree = "<group>"; };
 		5F3C6BCC2B7CD01C00A92717 /* SelectMuscleGroupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectMuscleGroupViewModel.swift; sourceTree = "<group>"; };
 		5F3C6BCF2B7CDE8000A92717 /* LinkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLabel.swift; sourceTree = "<group>"; };
 		5F3C6BD22B7CE0FE00A92717 /* UsersExercisesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersExercisesView.swift; sourceTree = "<group>"; };
@@ -148,12 +155,7 @@
 		5FB6A1CB2B76519500790B18 /* TrainingStartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingStartViewModel.swift; sourceTree = "<group>"; };
 		5FB6A1D02B769C8B00790B18 /* TrainingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingView.swift; sourceTree = "<group>"; };
 		5FB6A1D22B769D4700790B18 /* TrainingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewModel.swift; sourceTree = "<group>"; };
-		5FB6A1D42B769E2000790B18 /* GreenCircles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenCircles.swift; sourceTree = "<group>"; };
-		5FB6A1D62B769E3E00790B18 /* SetItemBWView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetItemBWView.swift; sourceTree = "<group>"; };
 		5FB6A1D82B769E4C00790B18 /* SetItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetItemView.swift; sourceTree = "<group>"; };
-		5FB6A1DA2B769EB100790B18 /* AddSetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSetView.swift; sourceTree = "<group>"; };
-		5FB6A1DC2B769EB600790B18 /* AddSetBWView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSetBWView.swift; sourceTree = "<group>"; };
-		5FB6A1DF2B76AB3000790B18 /* ControlWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlWidgetView.swift; sourceTree = "<group>"; };
 		5FB6A1E12B7783CE00790B18 /* AddExerciseBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseBar.swift; sourceTree = "<group>"; };
 		5FB6A1ED2B77877800790B18 /* ExerciseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseItem.swift; sourceTree = "<group>"; };
 		5FD38F322BA1FA2D00D5FDF1 /* WeightDateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDateItem.swift; sourceTree = "<group>"; };
@@ -178,34 +180,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F0473922BB96A9D007B87C1 /* Subviews */ = {
+		5F04739A2BBAC3F6007B87C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5FB6A1D02B769C8B00790B18 /* TrainingView.swift */,
+				5F0473A02BBAC5E3007B87C1 /* SelectMuscleGroupView2.swift */,
+				5F0473A22BBAF43D007B87C1 /* SelectExerciseView2.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F04739B2BBAC3FA007B87C1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5FB6A1D22B769D4700790B18 /* TrainingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5F04739C2BBAC3FF007B87C1 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				5F0473B32BBBFDBE007B87C1 /* TimerBar */,
+				5FB6A1E12B7783CE00790B18 /* AddExerciseBar.swift */,
+				5F0473902BB86B7D007B87C1 /* PurpleCircles.swift */,
+				5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */,
+				5F0473932BB96AAF007B87C1 /* TrainingWidget.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		5F0473982BBABC09007B87C1 /* New */ = {
+		5F0473AB2BBB1920007B87C1 /* AddExercise */ = {
 			isa = PBXGroup;
 			children = (
-				5FB6A1D02B769C8B00790B18 /* TrainingView.swift */,
-				5FB6A1D22B769D4700790B18 /* TrainingViewModel.swift */,
-				5F0473962BB96B76007B87C1 /* TimerBar.swift */,
-				5F0473932BB96AAF007B87C1 /* TrainingWidget.swift */,
-				5F04738D2BB85BF8007B87C1 /* TimeButtonView.swift */,
-				5F0473902BB86B7D007B87C1 /* PurpleCircles.swift */,
-				5FB6A1D82B769E4C00790B18 /* SetItemView.swift */,
+				5F0473AE2BBB1A45007B87C1 /* Components */,
+				5F0473AD2BBB192D007B87C1 /* ViewModel */,
+				5F0473AC2BBB1929007B87C1 /* View */,
 			);
-			path = New;
+			path = AddExercise;
 			sourceTree = "<group>";
 		};
-		5F349E112BB720AC00BE2083 /* Design */ = {
+		5F0473AC2BBB1929007B87C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5F0473922BB96A9D007B87C1 /* Subviews */,
-				5F349E122BB7218800BE2083 /* MainTrainingPage.swift */,
+				5F0473A42BBAFB25007B87C1 /* AddSetView2.swift */,
 			);
-			path = Design;
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F0473AD2BBB192D007B87C1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F04739E2BBAC548007B87C1 /* AddExerciseViewModel2.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5F0473AE2BBB1A45007B87C1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5FB6A1D82B769E4C00790B18 /* SetItemView.swift */,
+				5F0473A62BBAFB6B007B87C1 /* SetBWItemView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5F0473B32BBBFDBE007B87C1 /* TimerBar */ = {
+			isa = PBXGroup;
+			children = (
+				5F0473962BB96B76007B87C1 /* TimerBar.swift */,
+				5F0473B12BBBFD22007B87C1 /* EditTimerBarView.swift */,
+				5F0473B42BBBFE65007B87C1 /* TimerBarViewModel.swift */,
+			);
+			path = TimerBar;
 			sourceTree = "<group>";
 		};
 		5F3C064C2BAA0F2700A37BF6 /* Program */ = {
@@ -531,6 +578,7 @@
 			children = (
 				5F670EA02BA1AF620017CCA3 /* Colors.swift */,
 				5FD38F362BA1FC7400D5FDF1 /* TimePeriods.swift */,
+				5F0473AF2BBB1A6E007B87C1 /* TextFieldModifiers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -719,8 +767,9 @@
 		5FB6A1B62B763BBD00790B18 /* InProgress  */ = {
 			isa = PBXGroup;
 			children = (
+				5F0473AB2BBB1920007B87C1 /* AddExercise */,
 				5FB6A1E52B7784D100790B18 /* Main */,
-				5FB6A1E62B7784D600790B18 /* AddExercise */,
+				5FB6A1E62B7784D600790B18 /* UserExercises */,
 				5FB6A1BB2B763D3500790B18 /* Service */,
 			);
 			path = "InProgress ";
@@ -758,62 +807,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		5FB6A1CD2B769BE500790B18 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		5FB6A1CE2B769BED00790B18 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		5FB6A1CF2B769C2D00790B18 /* Subviews */ = {
-			isa = PBXGroup;
-			children = (
-				5FB6A1DF2B76AB3000790B18 /* ControlWidgetView.swift */,
-				5FB6A1DC2B769EB600790B18 /* AddSetBWView.swift */,
-			);
-			path = Subviews;
-			sourceTree = "<group>";
-		};
-		5FB6A1DE2B769F1900790B18 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				5FB6A1DA2B769EB100790B18 /* AddSetView.swift */,
-				5FB6A1E12B7783CE00790B18 /* AddExerciseBar.swift */,
-				5FB6A1D42B769E2000790B18 /* GreenCircles.swift */,
-				5FB6A1D62B769E3E00790B18 /* SetItemBWView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		5FB6A1E52B7784D100790B18 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				5F0473982BBABC09007B87C1 /* New */,
-				5F349E112BB720AC00BE2083 /* Design */,
-				5FB6A1CE2B769BED00790B18 /* View */,
-				5FB6A1CD2B769BE500790B18 /* ViewModel */,
-				5FB6A1CF2B769C2D00790B18 /* Subviews */,
-				5FB6A1DE2B769F1900790B18 /* Components */,
+				5F04739B2BBAC3FA007B87C1 /* ViewModel */,
+				5F04739A2BBAC3F6007B87C1 /* View */,
+				5F04739C2BBAC3FF007B87C1 /* Subviews */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		5FB6A1E62B7784D600790B18 /* AddExercise */ = {
+		5FB6A1E62B7784D600790B18 /* UserExercises */ = {
 			isa = PBXGroup;
 			children = (
-				5FB6A1E82B77851800790B18 /* View */,
 				5FB6A1E72B77851300790B18 /* ViewModel */,
 				5F3C6BD12B7CDF2500A92717 /* Subviews */,
 				5F3C6BCE2B7CDE6C00A92717 /* Components */,
 			);
-			path = AddExercise;
+			path = UserExercises;
 			sourceTree = "<group>";
 		};
 		5FB6A1E72B77851300790B18 /* ViewModel */ = {
@@ -822,14 +833,6 @@
 				5F3C6BCC2B7CD01C00A92717 /* SelectMuscleGroupViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		5FB6A1E82B77851800790B18 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				5F3C6BCA2B7CD00E00A92717 /* SelectMuscleGroupView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		5FDA2F962BA896FC00876AE8 /* Weight */ = {
@@ -953,25 +956,23 @@
 				5F3C6BDD2B7D1ECD00A92717 /* GymGuru.xcdatamodeld in Sources */,
 				5FDA2F922BA8940300876AE8 /* WeightMOCK.swift in Sources */,
 				5F3C6BF82B7F49AF00A92717 /* TrainingsStatisticsView.swift in Sources */,
+				5F0473A32BBAF43D007B87C1 /* SelectExerciseView2.swift in Sources */,
 				5F40DC6E2BA043FD00D7D744 /* RouterView.swift in Sources */,
 				5F40DCA82BA0C56C00D7D744 /* ExerciseStatisticsView.swift in Sources */,
 				5FB6A1B32B763A4500790B18 /* MainTabView.swift in Sources */,
 				5FB6A1E22B7783CF00790B18 /* AddExerciseBar.swift in Sources */,
 				5F3C6BF62B7DE08100A92717 /* TonnageChartViewModel.swift in Sources */,
-				5FB6A1DB2B769EB100790B18 /* AddSetView.swift in Sources */,
 				5F9C0C542BA5A9D9003717BA /* CalendarService.swift in Sources */,
+				5F0473A12BBAC5E3007B87C1 /* SelectMuscleGroupView2.swift in Sources */,
 				5FB6A1CC2B76519500790B18 /* TrainingStartViewModel.swift in Sources */,
 				5F3C6BE62B7DDA2A00A92717 /* TrainingStatisticView.swift in Sources */,
 				5FB6A1BD2B763D5900790B18 /* TrainingService.swift in Sources */,
 				5FDA2F942BA8943C00876AE8 /* WeightItem.swift in Sources */,
 				5F6237E52BB4764B0086D25F /* ProgramsView.swift in Sources */,
-				5FB6A1D52B769E2000790B18 /* GreenCircles.swift in Sources */,
 				5F670E982BA19E430017CCA3 /* ExerciseStatisticsService.swift in Sources */,
 				5FB6A1C22B76450C00790B18 /* UserService.swift in Sources */,
 				5F40DC7A2BA045C400D7D744 /* MenuView.swift in Sources */,
-				5FB6A1E02B76AB3000790B18 /* ControlWidgetView.swift in Sources */,
 				5F4ABBB62BAB605800F5EBFE /* MuscleGroupView.swift in Sources */,
-				5FB6A1DD2B769EB700790B18 /* AddSetBWView.swift in Sources */,
 				5F9C0C5D2BA5CC51003717BA /* CalendarSelectedDateView.swift in Sources */,
 				5FB6A1982B76373400790B18 /* ContentView.swift in Sources */,
 				5F3C06492BAA0B9200A37BF6 /* TrainingsWidget.swift in Sources */,
@@ -981,6 +982,7 @@
 				5F40DC9E2BA072BF00D7D744 /* ExerciseMenuView.swift in Sources */,
 				5F0473972BB96B76007B87C1 /* TimerBar.swift in Sources */,
 				5F40DCAA2BA0D71D00D7D744 /* ExerciseStaticticsViewModel.swift in Sources */,
+				5F0473A52BBAFB25007B87C1 /* AddSetView2.swift in Sources */,
 				5F3C6BD02B7CDE8000A92717 /* LinkLabel.swift in Sources */,
 				5FB6A1D92B769E4C00790B18 /* SetItemView.swift in Sources */,
 				5FB6A1AF2B763A2000790B18 /* Exercise.swift in Sources */,
@@ -989,7 +991,6 @@
 				5FED8AB62BA4BAA200C4DCE7 /* CalenarView.swift in Sources */,
 				5F04738E2BB85BF8007B87C1 /* TimeButtonView.swift in Sources */,
 				5FB6A1C42B76453800790B18 /* ExerciseService.swift in Sources */,
-				5FB6A1D72B769E3E00790B18 /* SetItemBWView.swift in Sources */,
 				5F6237E72BB476770086D25F /* ProgramsViewModel.swift in Sources */,
 				5FB6A1EE2B77877800790B18 /* ExerciseItem.swift in Sources */,
 				5FD38F352BA1FA9A00D5FDF1 /* ChartExerciseSmall.swift in Sources */,
@@ -998,20 +999,21 @@
 				5F3C064E2BAA0F4200A37BF6 /* AddProgramView.swift in Sources */,
 				5F0473912BB86B7D007B87C1 /* PurpleCircles.swift in Sources */,
 				5FB6A1C82B76502E00790B18 /* TrainingStartView.swift in Sources */,
+				5F0473B52BBBFE65007B87C1 /* TimerBarViewModel.swift in Sources */,
+				5F0473B02BBB1A6E007B87C1 /* TextFieldModifiers.swift in Sources */,
 				5F3C6BEE2B7DDF0B00A92717 /* DataMOCK.swift in Sources */,
 				5F670E9C2BA1A1200017CCA3 /* ChartExerciseInfo.swift in Sources */,
 				5FD38F332BA1FA2D00D5FDF1 /* WeightDateItem.swift in Sources */,
-				5F349E132BB7218800BE2083 /* MainTrainingPage.swift in Sources */,
 				5FDA2F9D2BA89D7900876AE8 /* WeightWidget.swift in Sources */,
 				5FB6A1AD2B763A1A00790B18 /* Set.swift in Sources */,
 				5FD38F372BA1FC7400D5FDF1 /* TimePeriods.swift in Sources */,
 				5FB6A1B12B763A2500790B18 /* Training.swift in Sources */,
+				5F04739F2BBAC548007B87C1 /* AddExerciseViewModel2.swift in Sources */,
 				5FB6A1D12B769C8B00790B18 /* TrainingView.swift in Sources */,
 				5FB6A1D32B769D4700790B18 /* TrainingViewModel.swift in Sources */,
 				5F40DC712BA0441F00D7D744 /* RouterViewModel.swift in Sources */,
 				5F40DCA42BA0BF8100D7D744 /* ExerciseLinkView.swift in Sources */,
 				5FDA2F992BA8974A00876AE8 /* WeightStatisticsView.swift in Sources */,
-				5F3C6BCB2B7CD00E00A92717 /* SelectMuscleGroupView.swift in Sources */,
 				5F9C0C572BA5AE25003717BA /* DayForCalendar.swift in Sources */,
 				5F3C6C022B7F66EC00A92717 /* DurationChartViewModel.swift in Sources */,
 				5F3C6BD82B7D1E9400A92717 /* CoreDataManager.swift in Sources */,
@@ -1021,7 +1023,9 @@
 				5F3C6BF42B7DE04E00A92717 /* TonnageChart.swift in Sources */,
 				5FED8AB32BA4B9EF00C4DCE7 /* DateExtension.swift in Sources */,
 				5F3C6BD52B7CE30900A92717 /* SelectExercisesView.swift in Sources */,
+				5F0473A72BBAFB6B007B87C1 /* SetBWItemView.swift in Sources */,
 				5F3C6BCD2B7CD01C00A92717 /* SelectMuscleGroupViewModel.swift in Sources */,
+				5F0473B22BBBFD22007B87C1 /* EditTimerBarView.swift in Sources */,
 				5F9C0C5A2BA5B1C1003717BA /* CalendarWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
