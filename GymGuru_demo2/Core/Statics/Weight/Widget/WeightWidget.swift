@@ -16,7 +16,7 @@ import Charts
 
 struct WeightWidget: View {
     
-    let weightItems = WeightMOCK.shared.items
+    var weightItems = WeightMOCK.shared.items
     
     //let weightItems = CoreDataManager.shared.getWeightNotes()
     

@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        MainTabView()
+//        MainTabView()
 //        CalendarView()
 //        AddProgramView()
 //        RouterView()
 //        MainTrainingPage()
+        ScaleSystemView()
             .preferredColorScheme(.dark)
     }
 }

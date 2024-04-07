@@ -48,6 +48,12 @@
 		5F44BF8C2BAF1106006059F3 /* AddProgrammViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F44BF8B2BAF1106006059F3 /* AddProgrammViewModel.swift */; };
 		5F4ABBB62BAB605800F5EBFE /* MuscleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4ABBB52BAB605800F5EBFE /* MuscleGroupView.swift */; };
 		5F4ABBB92BAB64D200F5EBFE /* MuscleGroupSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4ABBB82BAB64D200F5EBFE /* MuscleGroupSelectView.swift */; };
+		5F55A8672BC175AE00BAF67B /* WeightStatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55A8662BC175AE00BAF67B /* WeightStatisticsViewModel.swift */; };
+		5F55A86A2BC175E000BAF67B /* AddWeightNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55A8692BC175E000BAF67B /* AddWeightNoteView.swift */; };
+		5F55A86F2BC2825000BAF67B /* ChartTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55A86E2BC2825000BAF67B /* ChartTestData.swift */; };
+		5F55A8722BC2835900BAF67B /* ScaleSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55A8712BC2835900BAF67B /* ScaleSystemView.swift */; };
+		5F55A8752BC2837500BAF67B /* ScaleSystemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55A8742BC2837500BAF67B /* ScaleSystemViewModel.swift */; };
+		5F55A8782BC292A500BAF67B /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F55A8772BC292A500BAF67B /* TimePeriod.swift */; };
 		5F6237E52BB4764B0086D25F /* ProgramsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6237E42BB4764A0086D25F /* ProgramsView.swift */; };
 		5F6237E72BB476770086D25F /* ProgramsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6237E62BB476770086D25F /* ProgramsViewModel.swift */; };
 		5F670E982BA19E430017CCA3 /* ExerciseStatisticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F670E972BA19E430017CCA3 /* ExerciseStatisticsService.swift */; };
@@ -129,6 +135,12 @@
 		5F44BF8B2BAF1106006059F3 /* AddProgrammViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgrammViewModel.swift; sourceTree = "<group>"; };
 		5F4ABBB52BAB605800F5EBFE /* MuscleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleGroupView.swift; sourceTree = "<group>"; };
 		5F4ABBB82BAB64D200F5EBFE /* MuscleGroupSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleGroupSelectView.swift; sourceTree = "<group>"; };
+		5F55A8662BC175AE00BAF67B /* WeightStatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightStatisticsViewModel.swift; sourceTree = "<group>"; };
+		5F55A8692BC175E000BAF67B /* AddWeightNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeightNoteView.swift; sourceTree = "<group>"; };
+		5F55A86E2BC2825000BAF67B /* ChartTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTestData.swift; sourceTree = "<group>"; };
+		5F55A8712BC2835900BAF67B /* ScaleSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleSystemView.swift; sourceTree = "<group>"; };
+		5F55A8742BC2837500BAF67B /* ScaleSystemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleSystemViewModel.swift; sourceTree = "<group>"; };
+		5F55A8772BC292A500BAF67B /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
 		5F6237E42BB4764A0086D25F /* ProgramsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsView.swift; sourceTree = "<group>"; };
 		5F6237E62BB476770086D25F /* ProgramsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsViewModel.swift; sourceTree = "<group>"; };
 		5F670E972BA19E430017CCA3 /* ExerciseStatisticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseStatisticsService.swift; sourceTree = "<group>"; };
@@ -556,6 +568,72 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		5F55A8642BC1758400BAF67B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5FDA2F982BA8974A00876AE8 /* WeightStatisticsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F55A8652BC1758700BAF67B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F55A8662BC175AE00BAF67B /* WeightStatisticsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5F55A8682BC175C100BAF67B /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				5FDA2F9C2BA89D7900876AE8 /* WeightWidget.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		5F55A86B2BC2822A00BAF67B /* ScaleSystemForCharts */ = {
+			isa = PBXGroup;
+			children = (
+				5F55A8732BC2836600BAF67B /* ViewModel */,
+				5F55A8702BC2833300BAF67B /* View */,
+				5F55A86D2BC2824500BAF67B /* Data */,
+			);
+			path = ScaleSystemForCharts;
+			sourceTree = "<group>";
+		};
+		5F55A86D2BC2824500BAF67B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5F55A86E2BC2825000BAF67B /* ChartTestData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5F55A8702BC2833300BAF67B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F55A8712BC2835900BAF67B /* ScaleSystemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F55A8732BC2836600BAF67B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F55A8742BC2837500BAF67B /* ScaleSystemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5F55A8762BC2928900BAF67B /* ChartsGenerl */ = {
+			isa = PBXGroup;
+			children = (
+				5F55A8772BC292A500BAF67B /* TimePeriod.swift */,
+			);
+			path = ChartsGenerl;
+			sourceTree = "<group>";
+		};
 		5F670E962BA19DC40017CCA3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,6 +778,8 @@
 		5FB6A1A72B76396B00790B18 /* Statics */ = {
 			isa = PBXGroup;
 			children = (
+				5F55A8762BC2928900BAF67B /* ChartsGenerl */,
+				5F55A86B2BC2822A00BAF67B /* ScaleSystemForCharts */,
 				5FDA2F962BA896FC00876AE8 /* Weight */,
 				5FED8AAF2BA4B9AA00C4DCE7 /* Calendar */,
 				5F3C6BE02B7D203D00A92717 /* Menu */,
@@ -838,9 +918,10 @@
 		5FDA2F962BA896FC00876AE8 /* Weight */ = {
 			isa = PBXGroup;
 			children = (
+				5F55A8682BC175C100BAF67B /* Widget */,
+				5F55A8652BC1758700BAF67B /* ViewModel */,
+				5F55A8642BC1758400BAF67B /* View */,
 				5FDA2F9E2BA8AD8700876AE8 /* Subviews */,
-				5FDA2F982BA8974A00876AE8 /* WeightStatisticsView.swift */,
-				5FDA2F9C2BA89D7900876AE8 /* WeightWidget.swift */,
 			);
 			path = Weight;
 			sourceTree = "<group>";
@@ -848,6 +929,7 @@
 		5FDA2F9E2BA8AD8700876AE8 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				5F55A8692BC175E000BAF67B /* AddWeightNoteView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -956,6 +1038,7 @@
 				5F3C6BDD2B7D1ECD00A92717 /* GymGuru.xcdatamodeld in Sources */,
 				5FDA2F922BA8940300876AE8 /* WeightMOCK.swift in Sources */,
 				5F3C6BF82B7F49AF00A92717 /* TrainingsStatisticsView.swift in Sources */,
+				5F55A8782BC292A500BAF67B /* TimePeriod.swift in Sources */,
 				5F0473A32BBAF43D007B87C1 /* SelectExerciseView2.swift in Sources */,
 				5F40DC6E2BA043FD00D7D744 /* RouterView.swift in Sources */,
 				5F40DCA82BA0C56C00D7D744 /* ExerciseStatisticsView.swift in Sources */,
@@ -979,6 +1062,7 @@
 				5F3C6BD32B7CE0FE00A92717 /* UsersExercisesView.swift in Sources */,
 				5F44BF8C2BAF1106006059F3 /* AddProgrammViewModel.swift in Sources */,
 				5F4ABBB92BAB64D200F5EBFE /* MuscleGroupSelectView.swift in Sources */,
+				5F55A8672BC175AE00BAF67B /* WeightStatisticsViewModel.swift in Sources */,
 				5F40DC9E2BA072BF00D7D744 /* ExerciseMenuView.swift in Sources */,
 				5F0473972BB96B76007B87C1 /* TimerBar.swift in Sources */,
 				5F40DCAA2BA0D71D00D7D744 /* ExerciseStaticticsViewModel.swift in Sources */,
@@ -989,6 +1073,7 @@
 				5F0473942BB96AAF007B87C1 /* TrainingWidget.swift in Sources */,
 				5F9C0C502BA5A041003717BA /* CalendarDateView.swift in Sources */,
 				5FED8AB62BA4BAA200C4DCE7 /* CalenarView.swift in Sources */,
+				5F55A8752BC2837500BAF67B /* ScaleSystemViewModel.swift in Sources */,
 				5F04738E2BB85BF8007B87C1 /* TimeButtonView.swift in Sources */,
 				5FB6A1C42B76453800790B18 /* ExerciseService.swift in Sources */,
 				5F6237E72BB476770086D25F /* ProgramsViewModel.swift in Sources */,
@@ -996,6 +1081,7 @@
 				5FD38F352BA1FA9A00D5FDF1 /* ChartExerciseSmall.swift in Sources */,
 				5FB6A1962B76373400790B18 /* GymGuru_demo2App.swift in Sources */,
 				5F670EA12BA1AF620017CCA3 /* Colors.swift in Sources */,
+				5F55A86A2BC175E000BAF67B /* AddWeightNoteView.swift in Sources */,
 				5F3C064E2BAA0F4200A37BF6 /* AddProgramView.swift in Sources */,
 				5F0473912BB86B7D007B87C1 /* PurpleCircles.swift in Sources */,
 				5FB6A1C82B76502E00790B18 /* TrainingStartView.swift in Sources */,
@@ -1017,9 +1103,11 @@
 				5F9C0C572BA5AE25003717BA /* DayForCalendar.swift in Sources */,
 				5F3C6C022B7F66EC00A92717 /* DurationChartViewModel.swift in Sources */,
 				5F3C6BD82B7D1E9400A92717 /* CoreDataManager.swift in Sources */,
+				5F55A86F2BC2825000BAF67B /* ChartTestData.swift in Sources */,
 				5F3C6BFF2B7F66D600A92717 /* DurationChart.swift in Sources */,
 				5F40DC772BA0458900D7D744 /* ExerciseWidget.swift in Sources */,
 				5F3C6BE42B7DD98000A92717 /* TrainingsListViewModel.swift in Sources */,
+				5F55A8722BC2835900BAF67B /* ScaleSystemView.swift in Sources */,
 				5F3C6BF42B7DE04E00A92717 /* TonnageChart.swift in Sources */,
 				5FED8AB32BA4B9EF00C4DCE7 /* DateExtension.swift in Sources */,
 				5F3C6BD52B7CE30900A92717 /* SelectExercisesView.swift in Sources */,

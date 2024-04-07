@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeightItem: Identifiable {
+struct WeightNote: Identifiable {
     
     let id: String
     let weight: Float

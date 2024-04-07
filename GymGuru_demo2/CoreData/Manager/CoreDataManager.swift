@@ -30,7 +30,7 @@ class CoreDataManager {
     }
     
     
-    func addWeightNote(note: WeightItem) {
+    func addWeightNote(note: WeightNote) {
         let newWeightEntity = WeightEntity(context: context)
         newWeightEntity.id = note.id
         newWeightEntity.date = note.date
@@ -76,21 +76,21 @@ class CoreDataManager {
     }
     
     
-    func getWeightNotes() -> [WeightItem] {
+    func getWeightNotes() -> [WeightNote] {
         let request = NSFetchRequest<WeightEntity>(entityName: "WeightEntity")
         
-        var weightNotes: [WeightItem] = []
+        var weightNotes: [WeightNote] = []
         
         do {
             let fetchedWeightEntities = try context.fetch(request)
             
             for weightEntity in fetchedWeightEntities {
-                let newWeightItem = WeightItem(
+                let newWeightNote = WeightNote(
                     id: weightEntity.id ?? UUID().uuidString,
                     weight: weightEntity.weight,
                     date: weightEntity.date ?? Date()
                 )
-                weightNotes.append(newWeightItem)
+                weightNotes.append(newWeightNote)
             }
         } catch {
             print("DEGUG: Ошибка при загрузке данных о весе из CoreData: \(error.localizedDescription)")
