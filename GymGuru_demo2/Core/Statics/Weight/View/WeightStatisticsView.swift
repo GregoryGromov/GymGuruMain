@@ -42,65 +42,38 @@ struct WeightStatisticsView: View {
                 
                 
                 
-                
+                //select chart time period bar
                 ScrollView(.horizontal) {
                     HStack {
+                        ForEach(viewModel.availableTimePeriods) { timePeriod in
+                            Button {
+                                withAnimation {
+                                    viewModel.computeChartItems(selectedPeriod: timePeriod)
+                                    viewModel.selectedPeriod = timePeriod
+                                    viewModel.isShowingAllNotes = false
+                                }
+                            } label: {
+                                Text(timePeriod.name)
+                            }
+                        }
+                        .padding(.horizontal)
                         Button {
                             withAnimation {
-                                viewModel.computeNotesPerSelectedPeriod(.month1)
+                                viewModel.showAllChartItems()
+                                viewModel.isShowingAllNotes = true
                             }
                         } label: {
-                            Text("1 мес")
-                                .foregroundStyle(.white)
-                                .fontWeight(.semibold)
-                                .padding(.horizontal, 30)
-                                .padding(.vertical, 8)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(Color(.systemGray6))
-                                )
+                            Text("all")
                         }
-                        
-                        Button {
-                            withAnimation {
-                                viewModel.computeNotesPerSelectedPeriod(.month3)
-                            }
-                        } label: {
-                            Text("3 мес")
-                                .foregroundStyle(.white)
-                                .fontWeight(.semibold)
-                                .padding(.horizontal, 30)
-                                .padding(.vertical, 8)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 22)
-                                        .fill(Color(.systemGray6))
-                                )
-                        }
-                        
-                        Button {
-                            withAnimation {
-                                viewModel.notesPerSelectedPeriod = viewModel.weightNotes
-                            }
-                        } label: {
-                            Text("всё время")
-                                .foregroundStyle(.white)
-                                .fontWeight(.semibold)
-                                .padding(.horizontal, 30)
-                                .padding(.vertical, 8)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 22)
-                                        .fill(Color(.systemGray6))
-                                )
-                        }
-                        
                     }
-                    .padding(.horizontal)
+                    
                 }
                 
+                //chart
                 if viewModel.weightNotes.count > 1 {
                     
                     Chart {
-                        ForEach(viewModel.notesPerSelectedPeriod) { point in
+                        ForEach(viewModel.weightNotesPerSelectedPeriod) { point in
                             LineMark(
                                 x: .value("Date", point.date),
                                 y: .value("MaxWeight", point.weight)
@@ -140,62 +113,58 @@ struct WeightStatisticsView: View {
                 
                 
                 
-                
-                    VStack {
-                        List {
-                            HStack {
-                                Text("ЗАПИСИ")
-                                    .foregroundStyle(.gray)
-                                    .font(.footnote)
-            //                        .font(.caption)
-                                Spacer()
-                                Button {
-                                    withAnimation {
-                                        viewModel.showListOfItems.toggle()
-                                    }
-                                } label: {
-                                    Image(systemName: "chevron.right")
-                                        .rotationEffect(viewModel.showListOfItems ? .degrees(90) : .degrees(0))
+                //list of notes
+                VStack {
+                    List {
+                        HStack {
+                            Text("ЗАПИСИ")
+                                .foregroundStyle(.gray)
+                                .font(.footnote)
+                            Spacer()
+                            Button {
+                                withAnimation {
+                                    viewModel.showListOfItems.toggle()
                                 }
-                            }
-                            
-                            if viewModel.showListOfItems {
-                                
-                                                           
-                                ForEach(viewModel.notesPerSelectedPeriod) { item in
-                                    HStack {
-                                        Text("\(item.date.formatted(.dateTime.day().month()))")
-                                        Spacer()
-                                        Text("\(String(format: "%.1f", item.weight))kg")
-                                            .frame(width: 100, alignment: .trailing)
-                                    }
-                                    .swipeActions(allowsFullSwipe: false) {
-                                        Button {
-                                            //deleteWeightItem(byId: item.id)
-                                            viewModel.deletingItem = item
-                                            viewModel.showDeletingAlert = true
-                                        } label: {
-                                            Label("Mute", systemImage: "trash.fill")
-                                        }
-                                        .tint(.red)
-                                    }
-                                }
-                                                        
+                            } label: {
+                                Image(systemName: "chevron.right")
+                                    .rotationEffect(viewModel.showListOfItems ? .degrees(90) : .degrees(0))
                             }
                         }
+                        
+                        if viewModel.showListOfItems {
+                                                        
+                            ForEach(viewModel.weightNotes) { item in
+                                HStack {
+                                    Text("\(item.date.formatted(.dateTime.day().month()))")
+                                    Spacer()
+                                    Text("\(String(format: "%.1f", item.weight))kg")
+                                        .frame(width: 100, alignment: .trailing)
+                                }
+                                .swipeActions(allowsFullSwipe: false) {
+                                    Button {
+                                        //deleteWeightItem(byId: item.id)
+                                        viewModel.deletingItem = item
+                                        viewModel.showDeletingAlert = true
+                                    } label: {
+                                        Label("Mute", systemImage: "trash.fill")
+                                    }
+                                    .tint(.red)
+                                }
+                            }
+                                                    
+                        }
                     }
+                }
                 
                 Spacer()
                 
+                //add new note button
                 Button {
-                    print("Нажата")
                     if let lastWeightNote = viewModel.weightNotes.last {
                         viewModel.weight = lastWeightNote.weight
                     }
                     viewModel.showAddWeightView = true
                 } label: {
-                   
-                     
                             Text("Добавить")
                                 .font(.custom("Avenir-Heavy", size: 20))
                                 .padding(.top, 10)
@@ -216,20 +185,6 @@ struct WeightStatisticsView: View {
                     
                 }
                 
-                
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                Spacer()
                 
             }.sheet(isPresented: $viewModel.showAddWeightView) {
                 addNewWeightView

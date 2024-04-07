@@ -1,59 +1,63 @@
-//
-//  WeightStatisticsViewModel.swift
-//  GymGuru_demo2
-//
-//  Created by Григорий Громов on 06.04.2024.
-//
-
 import Foundation
 
 class WeightStatisticsViewModel: ObservableObject {
     
-    @Published var weightNotes: [WeightNote]
-    @Published var dateOfNoteCreation = Date.now
-    
     @Published var showListOfItems = true
     @Published var showDeletingAlert = false
+    @Published var showAddWeightView = false
+    
+    @Published var dateOfNoteCreation = Date.now
     @Published var deletingItem: WeightNote? = nil
     @Published var weight: Float = 0
-    @Published var showAddWeightView = false
-
     
-    @Published var notesPerSelectedPeriod: [WeightNote]
-    @Published var chartPeriod: ChartPeriod = .month1
+    
+    
+    @Published var weightNotesPerSelectedPeriod: [WeightNote]
+    @Published var weightNotes: [WeightNote]
+    @Published var availableTimePeriods: [TimePeriod]
+    var selectedPeriod: TimePeriod
+    var isShowingAllNotes = false
+    
     
     init() {
-        let currentDate = Date()
-        let month1InSeconds = 60*60*24*30
+        let allChartItems = WeightMOCK.shared.items.sorted {$0.date > $1.date}
         
-        let weightNotes = WeightMOCK.shared.items.sorted {$0.date < $1.date}
-//        let weightNotes = CoreDataManager.shared.getWeightNotes().sorted {$0.date < $1.date}
+//      let allChartItems = CoreDataManager.shared.getWeightNotes().sorted {$0.date < $1.date}
         
         
+        self.weightNotes = allChartItems
         
-        var notesPerSelectedPeriod = [WeightNote]()
-
-        for weightNote in weightNotes {
-            if weightNote.date.timeIntervalSince(currentDate) < Double(month1InSeconds) {
-                notesPerSelectedPeriod.append(weightNote)
+        let chartItemsPerTimePeriod = allChartItems.filter { abs($0.date.timeIntervalSince(Date())) < Double(TimePeriod.values[1].seconds)}
+        self.weightNotesPerSelectedPeriod = chartItemsPerTimePeriod
+        self.selectedPeriod = TimePeriod.values[1]
+        
+        if let lastItem = allChartItems.last {
+            if let firstItem = allChartItems.first {
+                let secondsRange = Int(abs(firstItem.date.timeIntervalSince(lastItem.date)))
+                
+                var availableTimePeriods = [TimePeriod]()
+                for timePeriod in TimePeriod.values {
+                    if timePeriod.seconds < secondsRange {
+                        availableTimePeriods.append(timePeriod)
+                    } else {
+                        break
+                    }
+                }
+                
+                self.availableTimePeriods = availableTimePeriods
+                return
             }
         }
-        
-        self.weightNotes = weightNotes
-        self.notesPerSelectedPeriod = notesPerSelectedPeriod
+        self.availableTimePeriods = []
     }
     
     
-    let period = ChartPeriod.month1
-    
     let manager = CoreDataManager.shared
-    
-    //    @State var weightItems = CoreDataManager.shared.getWeightNotes().sorted {$0.date < $1.date}
-    
+        
    
     var weightDifferenceBySelectedPeriodFormatted: String {
-        if let lastNote = notesPerSelectedPeriod.last {
-            if let firstNote = notesPerSelectedPeriod.first {
+        if let lastNote = weightNotesPerSelectedPeriod.last {
+            if let firstNote = weightNotesPerSelectedPeriod.first {
                 let difference = lastNote.weight - firstNote.weight
                 if difference > 0 {
                     return "+" + String(format: "%.1f", difference)
@@ -96,17 +100,6 @@ class WeightStatisticsViewModel: ObservableObject {
         return weightNotes.last?.weight
     }
     
-//    var measurementsInterval: Double? {
-//        if let fisrtMesurement = weightNotes.first {
-//            if let lastMesurement = weightNotes.last {
-//                return abs(fisrtMesurement.date.timeIntervalSince(lastMesurement.date))
-//            }
-//        }
-//        return nil
-//    }
-    
-    
-    
     
     func addWeightNote() {
         let newWeightNote = WeightNote(
@@ -123,6 +116,13 @@ class WeightStatisticsViewModel: ObservableObject {
         weightNotes = weightNotes.sorted {$0.date < $1.date}
         
         dateOfNoteCreation = Date()
+        
+        if isShowingAllNotes {
+            weightNotesPerSelectedPeriod = weightNotes
+        } else {
+            computeChartItems(selectedPeriod: selectedPeriod)
+        }
+        
     }
     
     func deleteWeightNote(_ item: WeightNote) {
@@ -139,44 +139,17 @@ class WeightStatisticsViewModel: ObservableObject {
         }
     }
     
-    func computeNotesPerSelectedPeriod(_ period: ChartPeriod) {
-        
-        print("Функция пересета запущена")
-        
-        var intervalInSeconds: Double = 0
-        let currentDate = Date()
-        
-        switch period {
-        case .week2:
-            intervalInSeconds = 60*60*24*14
-        case .month1:
-            intervalInSeconds = 60*60*24*30
-        case .month3:
-            intervalInSeconds = 60*60*24*30*3
-        case .month6:
-            intervalInSeconds = 60*60*24*30*6
-        case .year1:
-            intervalInSeconds = 60*60*24*30*12
-        case .all:
-            intervalInSeconds = 228
-        }
-        
-        notesPerSelectedPeriod = []
-        
-        for weightNote in weightNotes {
-            print(currentDate.timeIntervalSince(weightNote.date))
-            if currentDate.timeIntervalSince(weightNote.date) < intervalInSeconds {
-                
-                notesPerSelectedPeriod.append(weightNote)
+    func computeChartItems(selectedPeriod: TimePeriod) {
+        var chartItems = [WeightNote]()
+        for chartItem in weightNotes {
+            if abs(chartItem.date.timeIntervalSince(Date())) < Double(selectedPeriod.seconds) {
+                chartItems.append(chartItem)
             }
         }
-        
-        print("-----------------------")
-        
-        for weightNote in notesPerSelectedPeriod {
-            print(currentDate.timeIntervalSince(weightNote.date))
-        }
-        
-        
+        weightNotesPerSelectedPeriod = chartItems
+    }
+    
+    func showAllChartItems() {
+        weightNotesPerSelectedPeriod = weightNotes
     }
 }

@@ -14,7 +14,8 @@ struct ContentView: View {
 //        AddProgramView()
 //        RouterView()
 //        MainTrainingPage()
-        ScaleSystemView()
+//        ScaleSystemView()
+        WeightStatisticsView()
             .preferredColorScheme(.dark)
     }
 }
