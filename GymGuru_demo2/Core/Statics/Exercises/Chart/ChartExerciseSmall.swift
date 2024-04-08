@@ -31,7 +31,7 @@ struct ChartExerciseSmall: View {
         }
         .chartXAxis(.hidden)
         .chartYAxis(.hidden)
-        .frame(width: 90, height: 40)
+        .frame(width: 70, height: 40)
     }
 }
 

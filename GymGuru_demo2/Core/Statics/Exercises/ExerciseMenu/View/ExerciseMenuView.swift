@@ -26,28 +26,27 @@ struct ExerciseMenuView: View {
             return service.exerciseNames.filter { $0.contains(searchText) }
         }
     }
-        
+    
     
     var body: some View {
         VStack {
             
             
             NavigationStack {
-                        List {
-                            ForEach(searchResults, id: \.self) { name in
-                                NavigationLink {
-//                                    ExerciseStatisticsView(exerciseName: name)
-                                    ExerciseStatisticsView(chartInfo: service.findExerciseInfo(byName: name))
-                                    
-                                } label: {
-                                    ExerciseLinkView(chartInfo: service.findExerciseInfo(byName: name))
-                                }
-                            }
+                List {
+                    ForEach(searchResults, id: \.self) { name in
+                        NavigationLink {
+                            ExerciseStatisticsView(chartInfo: service.findExerciseInfo(byName: name))
+                        } label: {
+                            ExerciseLinkView(chartInfo: service.findExerciseInfo(byName: name))
+                                .padding(.horizontal)
                         }
-                        .navigationTitle("Упражнения")
                     }
-                    .searchable(text: $searchText)
-
+                }
+                .navigationTitle("Упражнения")
+            }
+            .searchable(text: $searchText)
+            
             Text("Список всех тренировок")
             Button("Закрыть") {
                 dismiss()

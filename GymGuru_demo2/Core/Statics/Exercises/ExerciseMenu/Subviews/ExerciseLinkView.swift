@@ -13,6 +13,15 @@ struct ExerciseLinkView: View {
     let linearGradient = LinearGradient(gradient: Gradient(colors: [Color.accentColor.opacity(0.6), Color.accentColor.opacity(0)]), startPoint: .top, endPoint: .bottom)
     
     let chartInfo: ChartExerciseInfo
+    let points: [WeightDateItem]
+    
+    init(chartInfo: ChartExerciseInfo) {
+        self.chartInfo = chartInfo
+        self.points = chartInfo.points.filter {abs($0.date.timeIntervalSince(Date())) < Double(2_600_000)}
+        
+        
+        
+    }
     
     var body: some View {
         HStack {
@@ -26,14 +35,14 @@ struct ExerciseLinkView: View {
                 }
                 
             }
-            .frame(width: 180)
+            .frame(width: 150)
             
-            ChartExerciseSmall(points: chartInfo.points)
+            ChartExerciseSmall(points: points)
             
             Spacer()
             
-            if let lastValue = chartInfo.points.last {
-                if let firstValue = chartInfo.points.first {
+            if let lastValue = points.last {
+                if let firstValue = points.first {
                     HStack {
                         Spacer()
                         VStack {
@@ -52,7 +61,7 @@ struct ExerciseLinkView: View {
                             
                         
                         }
-                        .padding(.trailing, 6)
+                        
                         .fontWeight(.semibold)
                     }
                     .frame(width: 90)
@@ -60,7 +69,7 @@ struct ExerciseLinkView: View {
                 }
             }
         }
-        .padding(.horizontal, 12)
+//        .padding(.horizontal, 12)
         .padding(.vertical, 9)
     }
 }

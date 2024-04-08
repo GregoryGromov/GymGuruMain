@@ -8,19 +8,11 @@
 import Foundation
 
 
-
-
-
 //преднзначена для хранения данных о максимальном весе за тренировку для конкретного упражнения
 
 
-
-
 class ExerciseStatisticsService: ObservableObject {
-    
-//    @Published var exerciseStatistics = [String:[WeightDateItem]]()
-//    @Published var exercisesByPopularity = [String]()
-    
+        
     @Published var chartInfo = [ChartExerciseInfo]()
     
     @Published var exerciseNames = [String]()
@@ -32,16 +24,11 @@ class ExerciseStatisticsService: ObservableObject {
         let exerciseStatistics = fetchExerciseMaxWeightStatistics(fromTrainings: trainings)
         let exercisesByPopularity = sortExercisesByPopularity(exerciseStatistics)
         
-        
-//        self.exerciseStatistics = exerciseStatistics
-//        self.exercisesByPopularity = exercisesByPopularity
         self.exerciseNames = exercisesByPopularity
         
         self.chartInfo = convertExerciseStatisticsToChartExerciseInfo(
             exerciseStatistics: exerciseStatistics,
             exercisePopularity: exercisesByPopularity)
-        
-
     }
     
     

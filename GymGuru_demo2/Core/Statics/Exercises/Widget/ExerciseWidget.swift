@@ -35,14 +35,10 @@ struct ExerciseWidget: View {
                             
                         }
                         .frame(width: 160)
-                        
                        
-                        ChartExerciseSmall(points: info.points)
-                        
+                        ChartExerciseSmall(points: info.points.filter {abs($0.date.timeIntervalSince(Date())) < Double(2_600_000)})
                         
                         Spacer()
-                        
-                        
                         
                         if let lastValue = info.points.last {
                             if let firstValue = info.points.first {

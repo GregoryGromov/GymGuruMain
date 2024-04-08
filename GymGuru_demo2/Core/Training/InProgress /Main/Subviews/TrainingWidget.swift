@@ -41,12 +41,16 @@ struct TrainingWidget: View {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray3))
                                     
-                                    Text("завершить")
-                                        .foregroundStyle(Color(.systemGray))
-                                        .padding(7)
-                                        .font(.title2)
-                                        .fontWeight(.semibold)
-                                    
+                                    NavigationLink {
+                                        
+                                    } label: {
+                                        Text("завершить")
+                                            .foregroundStyle(Color(.systemGray))
+                                            .padding(7)
+                                            .font(.title2)
+                                            .fontWeight(.semibold)
+                                    }
+  
                                 }
                                 .frame(width: 140, height: 30)
                             }
